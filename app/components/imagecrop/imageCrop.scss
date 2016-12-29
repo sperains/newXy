@@ -1,0 +1,25 @@
+.outerStyle{
+	height: 240px;
+	width: 350px;
+	border: solid 1px #fff;
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	.frameStyle{
+		
+		width:  210px;
+		height: 210px;
+		border: solid 1px red;
+		box-sizing: border-box;
+		cursor: move;
+		position: absolute;
+
+		.circle{
+			height: 100%;
+			width: 100%;
+			border-radius: 50% ;
+			border: solid 1px blue;
+		}
+	}
+}
