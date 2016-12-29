@@ -32,7 +32,9 @@ export default class ImageCrop extends Component{
 		if(y<=0 ) y = -1 ;
 		if(y>=30) y = 29 ;
 		if(me.ctx){
-			me.ctx.drawImage(me.image , me.state.left , me.state.top , 210 , 210 , 0  , 0  , 210 , 210  );
+			let widthRate = 1440 / 384;
+			let heightRate = 900 / 240;
+			me.ctx.drawImage(me.image , me.state.left *widthRate , me.state.top * eightRate , 210 * widthRate  , 210*heightRate , 0  , 0  , 1440 , 1000  );
 		}
 		this.setState({
 			left : x ,
@@ -42,18 +44,22 @@ export default class ImageCrop extends Component{
 
 	onMouseUp(){
 		this.refs.frame.removeEventListener('mousemove' , this.onMouseMove);
+
 	}
 
 	onFileChange(e){
 		let me = this ;
 		let file = e.target.files[0];
+		console.log(file);
 		let reader = new FileReader();
 		reader.onload = ()=> {
 			let url = reader.result;
 			me.setState({wrapImage : url});
 			let canvas = me.refs.canvas , ctx = canvas.getContext('2d'), image = new Image();	
 			image.src = url ;
+			console.log(image.width , image.height);
 			me.ctx = ctx;
+
 			me.image = image;
 		}
 		reader.readAsDataURL(file);
@@ -77,8 +83,9 @@ export default class ImageCrop extends Component{
 		return (
 			<div>
 				<input type="file" onChange={this.onFileChange} />
-				<div ref="wrap" style={{backgroundImage : 'url(' + this.state.wrapImage + ')'}} className='outerStyle' >
-					<div></div>
+				
+				<div ref="wrap" className='outerStyle' >
+					<img src={this.state.wrapImage} height='240'/>
 					<div className='frameStyle'
 					style={{
 						left : this.state.left,
@@ -88,7 +95,7 @@ export default class ImageCrop extends Component{
 						<div className="circle"></div>
 					</div>
 				</div>
-				<canvas ref="canvas" style={{width : '210px' , height : '210px' }}></canvas>
+				<canvas ref="canvas" style={{width : '350px' , height : '240px' }}></canvas>
 			</div>
 		)
 	}
