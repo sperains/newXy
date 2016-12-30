@@ -1,9 +1,11 @@
 import React , { Component } from 'react';
-import { Editor , EditorState , ContentState ,  RichUtils , Modifier , convertToRaw , convertFromHTML  } from 'draft-js';
+import { Editor , EditorState , ContentState ,  RichUtils , Modifier , convertToRaw , convertFromHTML ,DefaultDraftBlockRenderMap    } from 'draft-js';
 import BlockStyleControls from './BlockStyleControls';
 import InlineStyleControls from './InlineStyleControls';
 import {stateToHTML} from 'draft-js-export-html';
 import './RichEditor.scss';
+
+var Immutable = require('immutable');
 
 const BLOCK_TYPES = [
 	{label: 'H1', style: 'header-one'},
@@ -16,7 +18,7 @@ const BLOCK_TYPES = [
 	{label: 'UL', style: 'unordered-list-item'},
 	{label: 'OL', style: 'ordered-list-item'},
 	{label: 'Code Block', style: 'code-block'},
-
+	{label: 'Center' , style:'text-align-center'}
       ];
 
 var INLINE_STYLES = [
@@ -24,8 +26,21 @@ var INLINE_STYLES = [
 	{label: 'Italic', style: 'ITALIC'},
 	{label: 'Underline', style: 'UNDERLINE'},
 	{label: 'Monospace', style: 'CODE'},
+	{label: 'Center' , style:'CENTER'}
 
 ];
+
+const blockRenderMap = Immutable.Map({
+	'text-align-left': {
+		element: 'div'
+	},
+	'text-align-center': {
+		element: 'div'
+	},
+	'text-align-right': {
+		element: 'div'
+	}
+});
 
 export default class RichEditor extends Component{
 
@@ -41,6 +56,8 @@ export default class RichEditor extends Component{
 		this.toggleBlockType = (type) => this._toggleBlockType(type);
 		this.toggleInlineStyle= (style) =>this._toggleInlineStyle(style);
 		this.convertContentFromHTML = this.convertContentFromHTML.bind(this);
+    		this.extendedBlockRenderMap = DefaultDraftBlockRenderMap.merge(blockRenderMap);
+    		this.myBlockStyleFn = this.myBlockStyleFn.bind(this);
 	}
 
 	componentDidMount() {
@@ -86,6 +103,13 @@ export default class RichEditor extends Component{
 		return 'not-handled';
 	}
 
+	myBlockStyleFn(contentBlock) {
+		const type = contentBlock.getType();
+		if (type === 'text-align-center') {
+			return 'text-align-center';
+		}
+	}
+
 	render() {
 		const editorState = this.state.editorState;
 		const common = {
@@ -109,7 +133,7 @@ export default class RichEditor extends Component{
 					onToggle={this.toggleInlineStyle} 
 					inlineTypes={INLINE_STYLES} 
 				/>
-				<Editor ref="editor" editorState={this.state.editorState} onChange={this.onChange} handleKeyCommand={this.handleKeyCommand} />
+				<Editor ref="editor" blockStyleFn={this.myBlockStyleFn} blockRenderMap={this.extendedBlockRenderMap}  editorState={this.state.editorState} onChange={this.onChange} handleKeyCommand={this.handleKeyCommand} />
 			</div>
 		)
 	}
