@@ -32,15 +32,18 @@ export default class ImageCrop extends Component{
 		if(y<=0 ) y = -1 ;
 		if(y>=30) y = 29 ;
 		if(me.ctx){
-			let widthRate = 1440 / 384;
-			let heightRate = 900 / 240;
-			me.ctx.drawImage(me.image , me.state.left *widthRate , me.state.top * eightRate , 210 * widthRate  , 210*heightRate , 0  , 0  , 1440 , 1000  );
+			var ratio = 1440 / 384 ;
+
+			me.ctx.drawImage(me.image , x*ratio , y , 210*ratio   , 210  , 0  , 0  , 210 , 210  );
 		}
 		this.setState({
 			left : x ,
 			top : y 
 		})
 	}
+
+
+
 
 	onMouseUp(){
 		this.refs.frame.removeEventListener('mousemove' , this.onMouseMove);
@@ -57,7 +60,7 @@ export default class ImageCrop extends Component{
 			me.setState({wrapImage : url});
 			let canvas = me.refs.canvas , ctx = canvas.getContext('2d'), image = new Image();	
 			image.src = url ;
-			console.log(image.width , image.height);
+			console.log(image.naturalWidth  , image.naturalHeight );
 			me.ctx = ctx;
 
 			me.image = image;
@@ -95,7 +98,7 @@ export default class ImageCrop extends Component{
 						<div className="circle"></div>
 					</div>
 				</div>
-				<canvas ref="canvas" style={{width : '350px' , height : '240px' }}></canvas>
+				<canvas ref="canvas" style={{width : '210px' , height : '210px' }}></canvas>
 			</div>
 		)
 	}

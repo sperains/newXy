@@ -27,6 +27,7 @@
     "antd": "^2.3.2",
     "console-polyfill": "^0.2.3",
     "draft-js": "^0.9.1",
+    "draft-js-export-html": "^0.5.2",
     "equals": "^1.0.5",
     "es5-shim": "^4.5.9",
     "flexibility": "^2.0.1",
