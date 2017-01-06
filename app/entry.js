@@ -8,6 +8,10 @@ import createHistory from 'history/lib/createHashHistory';
 import Main from './containers/Main';
 import store from './store.js';
 
+
+
+
+
 let root = $('#container')[0];
 
 const history = createHistory();

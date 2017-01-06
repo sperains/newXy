@@ -1,0 +1,163 @@
+
+/*左侧菜单最外层div*/
+.sider-wrap{
+	height: 100%;
+	transition: all 0.2s;
+	display: flex;
+	flex-direction: column;
+	background-color: #38444c;
+
+
+	.collapse-wrap{
+		height: 35px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+
+		.collapse-wrap-img{
+			width: 20px;
+			height: 20px;
+			background-image: url(../resources/images/collapse@2x.png);
+			background-size: contain;
+		}
+	}
+
+	.menu-wrap{
+		flex: 1;
+		
+		.menu-list{
+			color: #ececec;
+			font-size: 18px;
+			
+			.menu-item{
+				transition: all 0.3s ease;
+				transition: height 2s;
+
+				.menu-item-title{
+					height: 50px;
+					line-height: 50px;
+					font-size: 18px;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+
+					
+					background-color: #515f6e;
+
+					.arrow-icon{
+						display: block;
+						margin-left: 45px;
+						margin-right: 30px;
+						width: 10px;
+						height: 10px;
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-image: url(../resources/images/arrow-icon2@2x.png);
+					}
+
+					.arrow-icon-open{
+						width: 10px;
+						height: 10px;
+						background-image: url(../resources/images/arrow-icon@2x.png);
+						margin-top: 4px;
+					}
+				}
+
+
+
+				.menu-item-sublist{
+					.menu-item-sub{
+						height: 50px;
+						line-height:  50px;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+
+						.menu-icon , .menu-item-sub-title{
+							display: inline-block;
+						}
+
+						.menu-icon {
+							width: 22px;
+							height: 22px;
+							margin-left: 45px;
+							margin-right: 20px;
+							/*margin:  14px 0 ;*/
+							background-size: 44px 132px;
+							background-image: url(../resources/images/menuicon@2x.png);
+							background-repeat: no-repeat;
+						}
+						.menu-item-sub-title{
+						}
+					}
+
+				}
+
+				.menu-item-sublist-hidden{
+					height: 0;
+					overflow: hidden;
+					transition: height 2s;
+				}
+				
+				
+
+				ul li{
+
+				}
+			}
+		}
+
+	}
+}
+
+/*菜单顶部图标div*/
+.menu-icon{
+	height: 48px;
+	width: 100%;
+	background-color: #404040;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/*菜单顶部图片*/
+.menu-icon img{
+	height: 24px;
+	width: 24px;
+	margin: 0 auto;
+	cursor : pointer ;
+	transition: all 0.2s;
+}
+
+.menu-title{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/*设置左侧菜单位置及大小*/
+.menu-title span{
+	margin-left: 70px;
+}
+
+/*设置左侧菜单图标大小及绝对定位*/
+.icon{
+	display: block;
+	height: 24px;
+	width: 24px;
+	line-height: 24px;
+	position: absolute;
+	left: 8px;
+}
+
+/*菜单顶部小图片旋转动画*/
+.rotate{
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); 	/* IE 9 */
+	-moz-transform:rotate(90deg); 	/* Firefox */
+	-webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+	-o-transform:rotate(90deg); 	
+}

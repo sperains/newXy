@@ -16,6 +16,38 @@ class Main extends Component{
     }
 
     componentDidMount() {
+
+        let Editor = require('medium-editor');
+
+        let editorObj = new Editor('.editable'  ,{
+            buttonLabels: 'fontawesome',
+            toolbar: {
+                buttons: ['bold', 'italic', 'quote' , 'justifyLeft' , 'justifyCenter'],
+                diffLeft: 25,
+                diffTop: 10,
+            },
+            placeholder: {
+            /* This example includes the default options for placeholder,
+            if nothing is passed this is what it used */
+                text: '请输入内容...',
+                hideOnClick: false
+            }
+        })
+
+        console.log(editorObj);
+
+        editorObj.setContent(`<p>hahahah</p>`)
+        this.editorObj = editorObj;
+
+        editorObj.subscribe('editableInput', function (event, editable) {
+            // Do some work
+            console.log(editable);
+        });
+
+    }
+
+    componentWillUnmount() {
+        this.editorObj.destroy();
     }
 
     render(){
@@ -25,8 +57,9 @@ class Main extends Component{
                 <TopBar />
                 <div className="content">
                     <Sider />
-                    <div className="right-wrap">
-                        <RichEditor />
+                    <div className="right-wrap" id="right-wrap">
+                        <div className="editable">
+                        </div>
                     </div>
 
                     

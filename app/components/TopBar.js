@@ -1,8 +1,7 @@
 
 import React , {Component} from 'react';
 import { Badge ,Icon ,Menu, Dropdown ,message } from 'antd';
-import './topbar.css';
-import userImg from  '../resources/images/user.png';
+import './topbar.scss';
 
 const MenuItem = Menu.Item
 
@@ -50,20 +49,18 @@ export default class TopBar extends Component {
 
 		return (
 				<div className="topbar"> 
-					<div className="logo">Logo</div>
-					<div className="message" onClick={this.onMessageClick}>
-						<a href="#">
-							<Badge count={this.state.messageCount} overflowCount={9} dot={false}>
-								<span className="badge-icon" />
-							</Badge>
-						</a>
+					<div className="topbar-logo">
+						<span className="topbar-logo-big">喜悦</span>
+						<span className="topbar-logo-normal">后台管理</span>
 					</div>
-					<div className="info">
-						<Dropdown overlay={menu} trigger={['click']}>
-							<div className="ant-dropdown-link" href="#">
-						      		<Icon type="down" />
-							</div>
-						</Dropdown>
+
+					<div className="topbar-nav">
+						<span className="topbar-nav-username">Admin</span>
+						<div className="topbar-nav-logout">
+							<span>注销</span>
+							<div className="logout-img"></div>
+						</div>
+						
 					</div>
 				</div>
 			)

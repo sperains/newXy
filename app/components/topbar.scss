@@ -1,0 +1,77 @@
+.topbar{
+/*	position: fixed;
+	top: 0;*/
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #242e35;
+	padding-left: 35px;
+	
+	.topbar-logo{
+		height: 100%;
+		line-height: 72px;
+		color: #ececec;
+
+		.topbar-logo-big{
+			font-size: 32px;
+		}
+
+		.topbar-logo-normal{
+			margin-left: 10px;
+			font-size: 20px;
+		}
+	}
+
+	.topbar-nav{
+		height: 100%;
+		line-height: 72px;
+		color: #ececec;
+		margin-right: 35px;
+		font-size: 18px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		
+
+		.topbar-nav-logout{
+			margin-left: 20px;
+			cursor: pointer;
+
+			.logout-img{
+				width: 16px;
+				height: 16px;
+				margin-left: 10px;
+				display: inline-block;
+				background-image: url(../resources/images/logout.png);
+			}
+		}
+
+	}
+
+
+
+}
+
+
+
+/*顶部右边下拉菜单*/
+.ant-dropdown-link{
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	background-size: cover;
+}
+
+/*调整右边下拉菜单小箭头位置*/
+.anticon-down:before{
+	margin-left: 28px;
+	line-height: 32px;
+}
+
+/*设置右边下拉菜单中子项的文本对齐方式*/
+.ant-dropdown-menu-item{
+	text-align: center;
+
+}

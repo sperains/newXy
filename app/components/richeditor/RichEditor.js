@@ -17,8 +17,7 @@ const BLOCK_TYPES = [
 	{label: 'Blockquote', style: 'blockquote'},
 	{label: 'UL', style: 'unordered-list-item'},
 	{label: 'OL', style: 'ordered-list-item'},
-	{label: 'Code Block', style: 'code-block'},
-	{label: 'Center' , style:'text-align-center'}
+	{label: 'Code Block', style: 'code-block'}
       ];
 
 var INLINE_STYLES = [
@@ -27,7 +26,6 @@ var INLINE_STYLES = [
 	{label: 'Underline', style: 'UNDERLINE'},
 	{label: 'Monospace', style: 'CODE'},
 	{label: 'Center' , style:'CENTER'}
-
 ];
 
 const blockRenderMap = Immutable.Map({
@@ -133,7 +131,7 @@ export default class RichEditor extends Component{
 					onToggle={this.toggleInlineStyle} 
 					inlineTypes={INLINE_STYLES} 
 				/>
-				<Editor ref="editor" blockStyleFn={this.myBlockStyleFn} blockRenderMap={this.extendedBlockRenderMap}  editorState={this.state.editorState} onChange={this.onChange} handleKeyCommand={this.handleKeyCommand} />
+				<Editor ref="editor" customStyleMap={styleMap} editorState={this.state.editorState} onChange={this.onChange} handleKeyCommand={this.handleKeyCommand} />
 			</div>
 		)
 	}

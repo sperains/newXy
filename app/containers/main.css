@@ -1,7 +1,7 @@
 
 /*设置顶部菜单栏高度*/
 .topbar{
-	height: 60px;
+	height: 72px;
 }
 
 
@@ -9,7 +9,6 @@
 .content{
 	flex: 1;
 	height: 1000px;
-	margin-top: 60px;
 	overflow-y: hidden;
 	display: flex;
 	flex-direction: row;
@@ -17,5 +16,11 @@
 
 .right-wrap{
 	flex: 1;
-	background-color: gray;
 }
+
+.wrapperContainer{
+	width:200px;
+	height:200px;
+	background-color: red;
+}
+
