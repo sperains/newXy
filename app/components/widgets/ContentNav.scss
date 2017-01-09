@@ -1,0 +1,43 @@
+
+/*内容区导航最外层元素*/
+.content-nav-wrap{
+	height: 83px;
+	font-size: 18px;
+	color: #333333;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: solid 1px rgb(211,211,211);
+
+	
+	/*内容导航区标题*/
+	.content-nav-title{
+		line-height: 83px;
+		padding-left: 20px;
+
+		span{
+			border-left: solid 3px #ffb400;
+			padding-left: 10px;
+		}
+	}
+	
+	/*内容导航区按钮*/
+	.content-nav-btns{
+
+		padding-right: 35px;
+		span{
+			display: inline-block;
+			height: 40px;
+			width: 160px;
+			border-radius: 40px;
+			background-color: #ffb400;
+			color: #ffffff;
+			font-size: 16px;
+			text-align: center;
+			line-height: 40px;
+			margin-left: 20px;
+			cursor: pointer;
+		}
+	}
+}

@@ -1,0 +1,89 @@
+
+.trainingitem-wrap{
+	height: 200px;
+	width: 360px;
+	border:  solid 1px rgb(211,211,211);
+	margin-bottom: 25px;
+	margin-right: 25px;
+
+	.trainingitem-title{
+		height: 50px;
+		line-height: 50px;
+		font-size: 16px;
+		color: #333333;
+		border-bottom: solid 1px rgb(211,211,211); 
+		background-color: rgb(234,240,244);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		.trainingitem-title-text{
+			margin-left: 15px;
+		}
+
+		.trainingitem-title-btns{
+
+			.trainingitem-title-btn{
+				display: inline-block;
+				height: 21px;
+				width: 21px;
+				margin: 14px 14px;
+				cursor: pointer;
+				background-image: url(../../resources/images/option-btns@2x.png);
+				background-repeat: no-repeat;
+				background-size: 66px 125px;
+			}
+			/*编辑图标*/
+			.trainingitem-title-btns-edit{
+				background-position: left 0px;
+			}
+			/*删除图标*/
+			.trainingitem-title-btns-delete{
+				background-position: left -21px;
+			}
+		}
+	}
+
+	.trainingitem-content{
+		height: 150px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		
+		.trainingitem-content-itemswrap{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			padding-left: 15px;
+			padding-right: 15px;
+
+			.trainingitem-content-item{
+				width: 33%;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: 14px;
+				
+				line-height: 35px;
+				cursor: pointer;
+
+				.trainingitem-content-item-circle{
+					height: 14px;
+					width: 14px;
+					border-radius: 50%;
+					background-color: rgb(211,211,211);
+					margin-right: 15px;
+				}
+
+				.trainingitem-content-item-circle-active{
+					background-color: #ffb400;
+				}
+			}
+		}
+
+
+	}
+
+
+}
