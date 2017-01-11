@@ -1,0 +1,214 @@
+
+.traningitem-editwrap{
+	height: 650px;
+	width: 800px;
+	padding-top: 55px;
+	
+	/*关闭按钮*/
+	.traningitem-close{
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		right: 20px;
+		top: 20px;
+		background-image: url(../../resources/images/close.png);
+		background-size: 30px 30px;
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer;
+		border-radius: 50%;
+		background-color: #f5f5f5;
+	}
+	
+	/*图片上传*/
+	.traningitem-edit-image-upload{
+		height: 124px;
+		width: 100%;
+		margin-bottom: 25px;
+		
+	}
+	
+	/*喜悦训练项表单区*/
+	.traningitem-edit-form{
+		
+		/*单个表单项*/
+		.traningitem-edit-formitem{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding-left: 80px;
+			margin-bottom: 15px;
+
+			/*复选框按钮*/
+			.traningitem-edit-form-item-checkbox{
+				width: 35px;
+				height: 35px;
+				background-image: url(../../resources/images/status@2x.png);
+				background-size: 70px 53px;
+				background-position: -35px 0 ;
+				cursor: pointer;
+			}
+			.traningitem-edit-form-item-checkbox-checked{
+				background-position: 0 0 ;
+			}
+			
+			/*label*/
+			.traningitem-edit-form-item-label{
+				width: 80px;
+				height: 40px;
+				margin: 0 15px;
+				text-align:justify;
+				text-justify:inter-ideograph;	
+				line-height: 40px;
+				font-size: 14px;
+
+				span{
+					display: inline-block;
+					padding-left: 100%;
+				}
+			}
+		
+			input{
+				width: 505px;
+				height: 40px;
+				border-radius:  5px;
+				border: solid 1px rgb(211,211,211); 
+				outline: none;
+				font-size: 14px;
+				padding-left: 10px;
+			}
+			
+			/*添加音乐*/
+			.traningitem-edit-form-item-addmusic{
+				width: 505px;
+				height: 40px;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+
+				.traningitem-edit-form-item-addmusic-input{
+					width: 415px;
+					height: 40px;
+					font-size: 14px;
+					border-radius:  5px;
+					line-height: 40px;
+					border: solid 1px rgb(211,211,211); 
+					text-align: center;
+					cursor: pointer;
+					
+
+					.addmusic-input-wrap{
+						width: 100%;
+						height: 100%;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						justify-content: center;
+						
+
+						.btn-plus{
+							height: 30px;
+							width: 30px;
+							background-image: url(../../resources/images/plus.png);
+							background-size: cover;
+							margin-right: 5px;
+						}
+					}
+					
+
+					
+					
+			
+				
+				}
+
+
+				.btn-plus{
+
+				}
+				
+				/*音乐相关按钮*/
+				.traningitem-edit-form-item-music-btns{
+					background-image: url(../../resources/images/option-btns@2x.png);
+					background-size: 66px 125px;
+					background-repeat: no-repeat;
+					cursor: pointer;
+				}
+				
+				/*播放音乐按钮  默认是暂停状态*/
+				.traningitem-edit-form-item-music{
+					width: 40px;height: 40px;
+					margin-left: 10px;
+					background-position: 0 -85px;
+				}
+				/*播放状态*/
+				.traningitem-edit-form-item-music-play{
+					background-color: orange;
+				}
+
+				/*删除音乐按钮*/
+				.traningitem-edit-form-item-music-delete{
+					width: 21px;height: 21px;
+					margin-left: 15px;
+					background-position: 0 -21px;
+				}
+				/*添加音乐按钮*/
+				.traningitem-edit-form-item-music-add{
+					width: 25px;height: 25px;
+					margin-left: 13px;
+					background-position: 0 -60px;
+				}
+			}
+
+		}
+
+		.traningitem-edit-form-item-bgtext{
+			align-items: flex-start;
+		}
+	}
+
+	
+	/*操作区域*/
+	.traningitem-edit-options{
+		margin-top: 35px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+
+
+		.traningitem-edit-options-btn{
+			width: 160px;
+			height: 40px;
+			border-radius: 5px;
+			background-color: #ffb400;
+			line-height: 40px;
+			text-align: center;
+			cursor: pointer;
+			margin-bottom: 45px;
+		}
+	}
+
+}
+
+::-webkit-scrollbar  
+{  
+    width: 10px;  
+    height: 10px;  
+    background-color: #F5F5F5;  
+}  
+
+::-webkit-scrollbar-track  
+{  
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  */
+    /*border-radius: 10px;  */
+    /*background-color: #f5f5f5;  */
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    /*border-radius: 10px;  */
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #d3d3d3;  
+}  

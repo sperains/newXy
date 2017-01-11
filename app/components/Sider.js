@@ -1,6 +1,7 @@
 import React  , {Component}  from 'react' ;
 import { Menu, Icon , Switch  } from 'antd';
 import './Sider.scss';
+import {hashHistory} from 'react-router';
 
 
 const SubMenu = Menu.SubMenu;
@@ -24,33 +25,20 @@ export default class Sider extends Component {
 					{
 						title : '正念训练项',
 						icon : 'test1',
-						active : true
-					},
-					{
-						title : '正念训练项',
-						icon : 'test1',
-						active : false
-					},
+						active : true,
+						router : 'train'
+					}
 				]
 			},
 			{ 
-				title : '正念训练1'  , 
+				title : '喜悦活动'  , 
 				active : false ,
 				menuList : [
 					{
-						title : '正念训练营',
+						title : '喜悦活动项',
 						icon : 'test2',
-						active : true
-					},
-					{
-						title : '正念训练营',
-						icon : 'test2',
-						active : false
-					},
-					{
-						title : '正念训练营',
-						icon : 'test2',
-						active : false
+						active : true,
+						router : 'active'
 					}
 				]
 			}
@@ -68,11 +56,14 @@ export default class Sider extends Component {
 	// 点击主菜单
 	onMenuSelect( menu , index){
 		// console.log(menu , index);
+		let menuList = this.state.menuList;
+		// 如果点击的是当前展开的菜单则不做操作;
 		if(this.state.openKey == index){
+			// menuList[index].active = !menuList[index].active;
+			// this.setState({menuList});
 			return ;
 		}
 
-		let menuList = this.state.menuList;
 		let openKey ;
 		menuList.forEach( (menu , i)=>{
 			if(index == i){
@@ -81,6 +72,7 @@ export default class Sider extends Component {
 				menu.menuList.forEach( (subMenu , subIndex)=>{
 					if(subIndex == 0 ){
 						subMenu.active = true;
+						hashHistory.push('/' + subMenu.router)
 					}else{
 						subMenu.active = false;
 					}
@@ -113,7 +105,7 @@ export default class Sider extends Component {
 	render() {
 	    return (
 	      <div className="sider-wrap" style={{ width : this.state.collapse ? '40px' : '240px' }}>
-	      		<div className="collapse-wrap">
+	      		<div className="collapse-wrap" >
 	      			<div className="collapse-wrap-img"></div>
 	      		</div>
 	      		<div className="menu-wrap">

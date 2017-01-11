@@ -1,0 +1,73 @@
+
+/*每项活动*/
+.active-item{
+	height: 142px;
+	display: flex;
+	flex-direction: row;
+	margin-left: 35px;
+	border-bottom: solid 1px #d3d3d3;
+	font-size: 16px;
+	color: #333333;
+	
+	/*每条活动项分左右布局*/
+	.active-item-left, .active-item-right{
+		width: 50%;height: 100%;
+	}
+	
+	/*活动线左边div ,左侧又分上下布局*/
+	.active-item-left{
+		padding-top: 15px;
+
+		
+		/*上面*/
+		.active-item-left-top{
+			margin-bottom: 15px;
+			.active-title{
+				margin-left: 10px;
+			}
+		}
+	
+		/*下面*/
+		.active-item-left-bottom{
+			display: flex;
+			flex-direction: row;
+
+			.active-image{
+				width: 110px;
+				height: 72px;
+				background-color: #c3c3c3;
+				margin-right: 15px;
+			}
+
+			.active-detail{
+				display: flex;
+				flex-direction: column;
+				color: #c3c3c3;
+			}
+		}
+
+		
+	}
+	
+	/*活动线左边div*/
+	.active-item-right{
+		padding-top: 18px;
+		
+		.active-item-right-top{
+			display: flex;
+			flex-direction: row;
+			.active-createTime{
+				font-size: 16px;
+				color: #a3a3a3;
+			}
+
+			.active-release-btn{
+				width: 110px;
+				height: 35px;
+			}
+
+		}
+
+		
+	}
+}

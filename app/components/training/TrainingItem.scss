@@ -37,6 +37,13 @@
 			.trainingitem-title-btns-edit{
 				background-position: left 0px;
 			}
+			.trainingitem-title-btns-spe{
+				display: inline-block;
+				width: 1px;
+				height: 49px;
+				border-left: solid 1px #d3d3d3;
+			}
+
 			/*删除图标*/
 			.trainingitem-title-btns-delete{
 				background-position: left -21px;
@@ -64,9 +71,8 @@
 				flex-direction: row;
 				align-items: center;
 				font-size: 14px;
-				
 				line-height: 35px;
-				cursor: pointer;
+				/*cursor: pointer;*/
 
 				.trainingitem-content-item-circle{
 					height: 14px;
