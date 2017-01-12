@@ -2,13 +2,13 @@
 
 import loggerMiddleware from './middleware/logger';
 import {createStore,applyMiddleware,compose} from 'redux';
-import rootReducer from './reducers/reducers';
+import {rootReducers} from './reducers';
 
 // 扩展createStore
 var enhancerCreateStore = applyMiddleware(
     loggerMiddleware
 )(createStore);
 
-const store = enhancerCreateStore(rootReducer);
+const store = enhancerCreateStore(rootReducers);
 
 export default store;

@@ -1,5 +1,6 @@
 
 
 import ContentNav from './ContentNav';
+import ContentWithBackNav from './ContentWithBackNav';
 
-export  { ContentNav } 
+export  { ContentNav , ContentWithBackNav } 

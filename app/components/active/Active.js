@@ -3,16 +3,47 @@ import  React , {Component} from 'react';
 import './Active.scss';
 import {ContentNav} from '../widgets/index';
 import ActiveList from './ActiveList';
+import DataStore from '../../utils/DataStore';
+import { connect } from 'react-redux';
 
-export default class Active extends Component{
+
+class Active extends Component{
 	constructor(props) {
 		super(props);
-		this.state={
-		}
+		this.deleteActive = this.deleteActive.bind(this);
+		this.onReleaseStateChange = this.onReleaseStateChange.bind(this);
+	}
+
+	componentDidMount() {
+		let me = this ;
+		DataStore.getActiveList().then(activeList=>{
+			console.log(activeList);
+			me.props.dispatch({
+				type : 'ADD_ACTIVE_LIST',
+				activeList : activeList
+			})
+		})
 	}
 
 	onNewActiveClick(){
 		console.log(this.state);
+	}
+
+	deleteActive(index){
+		console.log(index);
+		let activeList = this.state.activeList;
+		activeList.splice(index,1);
+		this.setState({activeList});
+	}
+	onReleaseStateChange(index){
+		console.log('releaseChange' ,index);
+		let activeList = this.state.activeList;
+		activeList.forEach((active,i)=>{
+			if(index==i){
+				active.release = !active.release
+			}
+		})
+		this.setState({activeList});
 	}
 
 	render() {
@@ -24,9 +55,18 @@ export default class Active extends Component{
 					{text :'添加活动',onClick : this.onNewActiveClick.bind(this)}
 				]}
 				/>
-				<ActiveList />
+				<ActiveList 
+				activeList={this.props.activeList} 
+				onDelete={this.deleteActive} 
+				onReleaseStateChange={this.onReleaseStateChange}/>
 			</div>
 		)
 	}
 }
+
+const mapStateToProps= state=>{return {activeList : state.active.activeList} }
+
+
+export default connect(mapStateToProps)(Active);
+
 

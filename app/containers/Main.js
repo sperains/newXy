@@ -6,6 +6,7 @@ import AddTodo from '../components/AddTodo';
 import TopBar from '../components/TopBar';
 import Sider from '../components/Sider';
 import {hashHistory} from 'react-router';
+import {Active , ActiveEdit } from '../components/active';
 import './app.css';
 import './main.css';
 
@@ -16,13 +17,14 @@ class Main extends Component{
     }
 
     componentDidMount() {
-        hashHistory.push("/train")
+
     }
 
     componentWillUnmount() {
         // this.editorObj.destroy();
     }
 
+// {this.props.children}
     render(){
         const { dispatch } = this.props;
         return (
@@ -31,7 +33,8 @@ class Main extends Component{
                 <div className="content">
                     <Sider />
                     <div className="right-wrap" id="right-wrap">
-                       {this.props.children}
+                       
+                       <ActiveEdit />
                     </div>
                 </div>
             </div>
