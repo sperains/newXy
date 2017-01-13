@@ -1,0 +1,15 @@
+.editable-tag-group{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	.ant-tag{
+		height: 30px;
+		line-height: 30px;
+		background-color: #ffb400;
+		border-radius: 40px;
+		text-align: center;
+		color: #ffffff;
+		border: none;
+	}
+}

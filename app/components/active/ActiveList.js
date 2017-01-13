@@ -3,11 +3,17 @@ import React , {Component} from 'react';
 import ActiveItem from './ActiveItem';
 import './ActiveList.scss';
 import { connect } from 'react-redux';
+import {hashHistory} from 'react-router';
 
 class ActiveList extends Component{
 	constructor(props) {
 		super(props);	
 		this.onDeleteClick= this.onDeleteClick.bind(this);
+		this.onDetailClick = this.onDetailClick.bind(this);
+	}
+
+	onDetailClick(index,e){
+		hashHistory.push("/active-edit");
 	}
 
 	onDeleteClick(index, e){
@@ -27,11 +33,12 @@ class ActiveList extends Component{
 		return (
 			<div className="active-list">
 				{
-					activeList && activeList.map( (active,index)=>(
+					activeList && activeList.length >0 && activeList.map( (active,index)=>(
 						<ActiveItem 
 						key={index}
 						activeNo={index}
 						canDelete={true} 
+						onDetail={this.onDetailClick.bind(this,index)}
 						onDelete={this.onDeleteClick.bind(this,index)}
 						onReleaseStateChange={this.onReleaseStateChange.bind(this,index)}
 						activeInfo={active}

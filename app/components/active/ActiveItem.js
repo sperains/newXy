@@ -5,10 +5,25 @@ import './ActiveItem.scss';
 export default class ActiveItem extends Component{
 	constructor(props) {
 		super(props);
+		this.onResize = this.onResize.bind(this);
+	}
+
+	componentDidMount() {
+		this.onResize()
+		window.addEventListener('resize' , this.onResize);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize' , this.onResize);
+	}
+
+	onResize(){
+		// console.log('.active-item:',$(".active-item").width());
+		// $('.active-detail span').width($(".active-item").width() - 110 - 450)
 	}
 
 	render() {
-		const {canDelete , onDelete , activeInfo , activeNo , onReleaseStateChange} = this.props;
+		const {canDelete , onDetail ,  onDelete , activeInfo , activeNo , onReleaseStateChange} = this.props;
 
 		return (
 			<div className="active-item">
@@ -18,10 +33,10 @@ export default class ActiveItem extends Component{
 					</div>
 					<div className="active-item-left-bottom">
 						<div className="active-image"></div>
-						<div className="active-detail">
-							<span>报名结束时间：2016-12-24</span>
-							<span>活动地点：{activeInfo.address}</span>
-							<span>活动时间：{activeInfo.startTime}至{activeInfo.endTime}</span>
+						<div ref="active_detail" className="active-detail">
+							<span className="active-detail-span">报名结束时间：2016-12-24</span>
+							<span className="active-detail-span  text-overflow">活动地点：{activeInfo.address}</span>
+							<span className="active-detail-span">活动时间：{activeInfo.startTime}至{activeInfo.endTime}</span>
 						</div>
 					</div>
 				</div>
@@ -32,7 +47,7 @@ export default class ActiveItem extends Component{
 						{canDelete ? (<div onClick={onDelete} className="active-delete-btn"></div>) : ''}
 					</div>
 					<div className="active-item-right-center">
-						{activeInfo.isOpenLimit ?  '(' + activeInfo.personCount +'/' +  activeInfo.activeLimit + ")"   : '' } <span>报名详情</span>
+						{activeInfo.isOpenLimit ?  '(' + activeInfo.personCount +'/' +  activeInfo.activeLimit + ")"   : '' } <span onClick={onDetail}>报名详情</span>
 					</div>
 					<div className="active-item-right-bottom">
 						<span>编辑</span>

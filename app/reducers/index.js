@@ -1,11 +1,10 @@
 
 import {combineReducers} from 'redux' ;
-import { active } from './active';
+import activity  from './activity';
 
 
 const rootReducers = combineReducers({
-    active
+    activity
 });
-
 
 export {rootReducers} ;

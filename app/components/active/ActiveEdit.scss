@@ -1,4 +1,12 @@
 
-.active-edit-wrap{
+.active-edit{
 	height: 100%;
+
+	&-content{
+		width: 750px;
+		margin: 0 auto;
+		padding-top: 35px;
+		padding-left: 35px;
+
+	}
 }

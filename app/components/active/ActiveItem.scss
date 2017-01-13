@@ -17,6 +17,7 @@
 	
 	/*活动线左边div ,左侧又分上下布局*/
 	.active-item-left{
+		flex: 2;
 		padding-top: 15px;
 
 		/*上面*/
@@ -29,6 +30,7 @@
 	
 		/*下面*/
 		.active-item-left-bottom{
+			width: 100%;
 			display: flex;
 			flex-direction: row;
 
@@ -40,9 +42,14 @@
 			}
 
 			.active-detail{
+				flex:1;
 				display: flex;
 				flex-direction: column;
 				color: #c3c3c3;
+
+				&-span{
+					max-width: 600px;
+				}
 			}
 		}
 
@@ -51,6 +58,7 @@
 	
 	/*活动线左边div*/
 	.active-item-right{
+		flex: 1;
 		padding-top: 18px;
 		padding-bottom: 15px;
 		display: flex;

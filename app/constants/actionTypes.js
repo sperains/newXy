@@ -1,8 +1,8 @@
 
 const actionTypes = {
     activity:{
-        add:'activity$$add',
-        delete:'activity$$delete'
+        add:'ADD_ACTIVE_LIST',
+        delete:'DELETE_ACTIVE'
     },
     user:{
         login:'user$$login',

@@ -3,7 +3,7 @@
  */
 
 import createReducer from '../utils/createReducer'
-import {actionTypes} from '../../constants'
+import {actionTypes} from '../constants'
 
 
 /*

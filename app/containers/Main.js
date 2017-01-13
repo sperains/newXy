@@ -34,7 +34,7 @@ class Main extends Component{
                     <Sider />
                     <div className="right-wrap" id="right-wrap">
                        
-                       <ActiveEdit />
+                       {this.props.children}
                     </div>
                 </div>
             </div>

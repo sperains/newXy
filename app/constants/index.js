@@ -1,2 +1,4 @@
 
-export actionTypes from './actionTypes.js'
+import actionTypes from './actionTypes.js'
+
+export {actionTypes}

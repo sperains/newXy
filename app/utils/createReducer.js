@@ -5,8 +5,9 @@
 
 export default function createReducer(initialStates, reducerHandles) {
     return (state = initialStates, action) => {
-        const reducerHandle = reducerHandles[action.type]
-        if (!reducerHandle)return state
-        return {...state, ...reducerHandle(state, action)}
+
+        const reducerHandle = reducerHandles[action.type];
+        if (!reducerHandle)return state;
+        return Object.assign({},state ,reducerHandle(state, action))
     }
 }
