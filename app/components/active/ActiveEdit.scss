@@ -1,12 +1,12 @@
 
 .active-edit{
 	height: 100%;
-
+	overflow-y: scroll;
 	&-content{
 		width: 750px;
 		margin: 0 auto;
 		padding-top: 35px;
 		padding-left: 35px;
-
+		margin-bottom: 150px;
 	}
 }

@@ -2,23 +2,29 @@
 /*每项活动*/
 .active-item{
 	height: 142px;
-	display: flex;
-	flex-direction: row;
 	margin-left: 35px;
 	margin-right: 35px;
 	border-bottom: solid 1px #d3d3d3;
 	font-size: 16px;
 	color: #333333;
+	/*position: relative;*/
+	display: flex;
 	
 	/*每条活动项分左右布局*/
 	.active-item-left, .active-item-right{
-		width: 50%;height: 100%;
+		height: 100%;
 	}
 	
 	/*活动线左边div ,左侧又分上下布局*/
 	.active-item-left{
+		/*position: absolute;
+		top: 0;
+		left: 0;*/
 		flex: 2;
+		right: 450px;
 		padding-top: 15px;
+		/*overflow: hidden;*/
+		/*text-overflow:ellipsis*/
 
 		/*上面*/
 		.active-item-left-top{
@@ -31,8 +37,7 @@
 		/*下面*/
 		.active-item-left-bottom{
 			width: 100%;
-			display: flex;
-			flex-direction: row;
+			position: relative;
 
 			.active-image{
 				width: 110px;
@@ -42,14 +47,14 @@
 			}
 
 			.active-detail{
-				flex:1;
+				position: absolute;
+				top: 0;
+				left: 125px;
+				right: 0;
 				display: flex;
 				flex-direction: column;
 				color: #c3c3c3;
 
-				&-span{
-					max-width: 600px;
-				}
 			}
 		}
 
@@ -58,6 +63,10 @@
 	
 	/*活动线左边div*/
 	.active-item-right{
+		/*width: 450px;
+		position: absolute;
+		top: 0;
+		right: 0;*/
 		flex: 1;
 		padding-top: 18px;
 		padding-bottom: 15px;

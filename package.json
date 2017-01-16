@@ -25,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^2.3.2",
+    "autoprefixer": "^6.6.1",
     "console-polyfill": "^0.2.3",
     "draft-js": "^0.9.1",
     "draft-js-export-html": "^0.5.2",

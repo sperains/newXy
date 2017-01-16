@@ -33,7 +33,7 @@ Mock.mock(AppConfig.ApiConfig.getActiveList,{
             'release|0-2' : MockRandom.natural(0, 2),
             'title' : MockRandom.csentence(2),
             'subTitle' : MockRandom.csentence(20),
-            'address' : MockRandom.province() + MockRandom.city() + MockRandom.county() + 'XX大酒店2楼XX大酒店2',
+            'address' : MockRandom.province() + MockRandom.city() + MockRandom.county() + 'XX大酒店2楼XX大酒店2,XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2',
             'isOpenLimit|1' : true,
             'activeLimit' : 20,
             'personCount' : MockRandom.natural(0, 1000),

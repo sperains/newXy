@@ -13,9 +13,9 @@ var webpack = require('webpack');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const localHost = 'www.joyiou.com/';
-// const localHost = "www.ldted.com/";
-const domin = "mp/"
+// const localHost = 'www.joyiou.com/';
+const localHost = "www.ldted.com/";
+const domin = "pm/"
 
 var isProduction = function () {
     return process.env.NODE_ENV === 'production';

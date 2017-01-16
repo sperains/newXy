@@ -2,11 +2,70 @@
 import React , {Component} from 'react';
 import './ActiveEditForm.scss';
 import {DatePicker , TimePicker , Tag , Input , Tooltip, Button} from 'antd';
-import {EditableTagGroup} from '../widgets';
+import {EditableTagGroup } from '../widgets';
 
 export default class ActiveEditForm extends Component{
 	constructor(props) {
 		super(props);
+		this.state = {
+			address : ''
+		}
+		this.mapInit = this.mapInit.bind(this);
+		this.mapClickHandler = this.mapClickHandler.bind(this);
+	}
+
+	componentWillMount() {
+		
+	}
+
+	componentDidMount() {
+		this.mapInit();
+	}
+
+	// 初始化地图
+	mapInit(){
+		var me = this ;
+		var map, geolocation;
+			//加载地图，调用浏览器定位服务
+			map = new AMap.Map('map', {
+			resizeEnable: true,
+			zoom : 12				
+		});
+		AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.OverView'],
+			function(){
+				map.addControl(new AMap.ToolBar({}));
+			}
+		);
+		let marker = new AMap.Marker({
+			icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png"
+		});
+		marker.setMap(map);
+
+		var clickEventListener = map.on('click', function(e){
+			me.mapClickHandler(e , map , marker);
+		});
+
+	}
+
+	// 处理地图点击
+	mapClickHandler(e , map ,  marker){
+		let me = this;
+		// 设置锚点位置。
+		marker.setPosition(e.lnglat);
+		map.plugin(["AMap.Geocoder"], function () {
+			var geocoder = new AMap.Geocoder({
+				radius: 1000,
+				extensions: "all"
+			});  
+			geocoder.getAddress(e.lnglat, function(status, result) {
+				if (status === 'complete' && result.info === 'OK') {
+					var address = result.regeocode.formattedAddress; //返回地址描述
+					// me.props.setAddress(address , e.lnglat);
+					// 设置地址
+					me.setState({address})
+				}
+			});     
+		});
 	}
 
 	render() {
@@ -64,9 +123,18 @@ export default class ActiveEditForm extends Component{
 				<div className="active-edit-form-item">
 					<div className="active-edit-form-item-label">地址<span></span></div>
 					<div className="active-edit-form-item-content">
-						<input className="active-edit-form-item-content-input active-edit-form-item-content-address" />
+						<input value={this.state.address} className="active-edit-form-item-content-input active-edit-form-item-content-address" />
 					</div>
 				</div>
+
+				<div className="active-edit-form-item">
+					<div className="active-edit-form-item-label"><span></span></div>
+					<div className="active-edit-form-item-content">
+						<div className="active-edit-form-item-content-map map" id="map"/>
+					</div>
+				</div>
+
+
 			</div>
 		)
 	}	
