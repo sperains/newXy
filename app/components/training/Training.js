@@ -15,49 +15,49 @@ const data = [
 		id : '1',
 		title  : '正念行走',
 		items :[
-			{ title : '主题' , active : 1 , type:1 , content:''},
-			{ title : '描述' , active : 1 , type:1 , content:''},
-			{ title : '背景音乐一' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐二' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐三' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '文字介绍' , active : 1 , type:3 , content:''},
+			{ title : '主题' , active : 1 },
+			{ title : '描述' , active : 1},
+			{ title : '背景音乐一' , active : 1},
+			{ title : '背景音乐二' , active : 1 },
+			{ title : '背景音乐三' , active : 1 },
+			{ title : '文字介绍' , active : 1},
 		],
 	},
 	{	
 		id : '2',
 		title  : '正念行走',
 		items :[
-			{ title : '主题' , active : 1 , type:1 , content:''},
-			{ title : '描述' , active : 1 , type:1 , content:''},
-			{ title : '背景音乐一' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐二' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐三' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '文字介绍' , active : 1 , type:3 , content:''},
-		]
+			{ title : '主题' , active : 1 },
+			{ title : '描述' , active : 1},
+			{ title : '背景音乐一' , active : 1},
+			{ title : '背景音乐二' , active : 1 },
+			{ title : '背景音乐三' , active : 1 },
+			{ title : '文字介绍' , active : 1},
+		],
 	},
 	{
 		id : '3',
 		title  : '正念行走',
 		items :[
-			{ title : '主题' , active : 1 , type:1 , content:''},
-			{ title : '描述' , active : 1 , type:1 , content:''},
-			{ title : '背景音乐一' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐二' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐三' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '文字介绍' , active : 1 , type:3 , content:''},
-		]
+			{ title : '主题' , active : 1 },
+			{ title : '描述' , active : 1},
+			{ title : '背景音乐一' , active : 1},
+			{ title : '背景音乐二' , active : 1 },
+			{ title : '背景音乐三' , active : 1 },
+			{ title : '文字介绍' , active : 1},
+		],
 	},
 	{	
 		id : '4',
 		title  : '正念行走',
 		items :[
-			{ title : '主题' , active : 1 , type:1 , content:''},
-			{ title : '描述' , active : 1 , type:1 , content:''},
-			{ title : '背景音乐一' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐二' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '背景音乐三' , active : 1 , type:2 , src:'' , filename : ''},
-			{ title : '文字介绍' , active : 1 , type:3 , content:''},
-		]
+			{ title : '主题' , active : 1 },
+			{ title : '描述' , active : 1},
+			{ title : '背景音乐一' , active : 1},
+			{ title : '背景音乐二' , active : 1 },
+			{ title : '背景音乐三' , active : 1 },
+			{ title : '文字介绍' , active : 1},
+		],
 	}
 ]
 
@@ -86,6 +86,9 @@ export default class Training extends Component{
 
 	onNewItemClick(){
 		console.log('new item');
+		this.setState({
+			modalIsOpen : true
+		})
 	}
 
 	onItemEditClick(item , index){

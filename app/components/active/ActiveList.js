@@ -13,7 +13,7 @@ class ActiveList extends Component{
 	}
 
 	onDetailClick(index,e){
-		hashHistory.push("/active-edit");
+		hashHistory.push("/active-detail");
 	}
 
 	onDeleteClick(index, e){

@@ -1,6 +1,7 @@
 
 import Training from './Training';
+import TraningItemEdit from './TraningItemEdit';
 
-export { Training }
+export { Training , TraningItemEdit }
 
 

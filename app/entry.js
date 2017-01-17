@@ -6,8 +6,9 @@ import {Provider} from 'react-redux';
 import  {Router , Route , IndexRoute , Redirect , hashHistory} from 'react-router';
 import Main from './containers/Main';
 import store from './store.js';
-import {Training} from './components/training';
-import {Active , ActiveEdit } from './components/active';
+import {Training , TraningItemEdit} from './components/training';
+import {Active , ActiveEdit , ActiveEnrollList } from './components/active';
+import {Number } from './components/number';
 import {UserAuthWrapper} from 'redux-auth-wrapper'
 
 let root = $('#container')[0];
@@ -39,6 +40,9 @@ ReactDOM.render(
     			<Route path="/train" component={Training} />
     			<Route path="active" component={Active} />
     			<Route path="active-edit" component={ActiveEdit} />
+                                      <Route path="/train-edit" component={TraningItemEdit} />
+                                      <Route path="active-detail" component={ActiveEnrollList} />
+                                      <Route path="number" component={Number} />
     		</Route>
     	</Router>
     </Provider>,

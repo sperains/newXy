@@ -4,6 +4,6 @@ import ContentNav from './ContentNav';
 import ContentWithBackNav from './ContentWithBackNav';
 import EditableTagGroup  from './EditableTagGroup';
 import ImageUpload from './ImageUpload';
-import AMap from './AMap';
+import CustomTable from './CustomTable';
 
-export  { ContentNav , ContentWithBackNav , EditableTagGroup , ImageUpload , AMap}; 
+export  { ContentNav , ContentWithBackNav , EditableTagGroup , ImageUpload ,CustomTable}; 

@@ -1,0 +1,85 @@
+.number-content{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 110px;
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: row;
+
+	.ant-tabs-content{
+		height: 600px;
+	}
+
+	.number-image{
+		margin-left: 35px;
+		height: 80px;
+		width: 80px;
+		background-color: #ffb400;
+		margin-right: 35px;
+		font-size: 48px;
+		line-height: 80px;
+		text-align: center;
+		color: #fff;
+	}
+
+	.number-form{
+		
+		&-item{
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 10px;
+			
+			.ant-input{
+				min-height: 40px;
+				max-width: 600px;
+			}
+
+			&-label{
+				width: 60px;
+				height: 40px;
+				text-align:justify;
+				text-justify:inter-ideograph;	
+				font-size: 16px;
+				margin-right: 30px;
+
+				span{
+					display: inline-block;
+					padding-left: 100%;
+				}
+			}
+
+			&-desc{
+				width: 600px;
+				height: 30px;
+				border: none;
+				outline: none;
+			}
+
+			&-edit{
+				width: 22px;height: 21px;
+				margin-left: 30px;
+				background-image: url(../../resources/images/option-btns@2x.png);
+				background-size: 66px 125px;
+				background-position: -42px 0;
+				cursor: pointer;
+			}
+			&-edit:hover{
+				background-position: -21px 0 ;
+			}
+
+			&-delete{
+				width: 22px;height: 21px;
+				margin-left: 20px;
+				background-image: url(../../resources/images/option-btns@2x.png);
+				background-size: 66px 125px;
+				cursor: pointer;
+				background-position: -44px -21px;
+			}
+			&-delete:hover{
+				background-position: -22px -21px;
+			}
+
+		}
+	}
+}

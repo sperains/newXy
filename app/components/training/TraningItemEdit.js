@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
 import Modal from 'react-modal';
 import './TraningItemEdit.scss';
+import {ImageUpload} from '../widgets';
 
 
 const customStyles = {
@@ -119,38 +120,21 @@ export default class TraningItemEdit extends Component{
 			>
 				<div className="traningitem-editwrap">
 					<div className="traningitem-close" onClick={this.props.onClose}></div>
-					<div className="traningitem-edit-image-upload">
-					</div>
+					<ImageUpload />
 					<div className="traningitem-edit-form">
-
-						{
-							content.items.map( (item , index)=>{
-								switch(item.type){
-									case 1 : return (<FormItem key={index} title={item.title} checked={item.active} />); 
-									case 2 : return (
-														<AudioUpload key={index}
-														title={item.title} 
-														checked={true} 
-														type={ content.items[index+1].type == 2 ? 2 : 1}
-														onChange={this.onAudioChange}
-														onClick={content.items[index+1].type == 2 ? ()=>this.onDelAudioUploadClick(item,index) : ()=>this.onNewAudioUploadClick(item,index)}
-														filename={this.state.filename}
-														/>
-													);
-									case 3 : return (
-												<div key={index} className="traningitem-edit-formitem traningitem-edit-form-item-bgtext">
-													<div className="traningitem-edit-form-item-checkbox"></div>
-													<div className="traningitem-edit-form-item-label">背景文字<span></span></div>
-													<div className="editable" style={editorStyles}></div>
-												</div>
-												);
-								}
-							})
-						}
-
-						
-
-						
+						<FormItem  title="主题" checked={true} />
+						<FormItem  title="描述" checked={false} />
+						<AudioUpload 
+						title="背景音乐一" 
+						checked={true} 
+						onChange={this.onAudioChange}
+						filename={this.state.filename}
+						/>
+						<div  className="traningitem-edit-formitem traningitem-edit-form-item-bgtext">
+							<div className="traningitem-edit-form-item-checkbox"></div>
+							<div className="traningitem-edit-form-item-label">背景文字<span></span></div>
+							<div className="editable" style={editorStyles}></div>
+						</div>
 					</div>
 					<div className="traningitem-edit-options">
 						<div className="traningitem-edit-options-btn">完成</div>

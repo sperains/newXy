@@ -3,6 +3,7 @@
 	height: 650px;
 	width: 800px;
 	padding-top: 55px;
+	padding-left: 80px;
 	
 	/*关闭按钮*/
 	.traningitem-close{
@@ -30,13 +31,13 @@
 	
 	/*喜悦训练项表单区*/
 	.traningitem-edit-form{
+		margin-top: 20px;
 		
 		/*单个表单项*/
 		.traningitem-edit-formitem{
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			padding-left: 80px;
 			margin-bottom: 15px;
 
 			/*复选框按钮*/

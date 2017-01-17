@@ -11,3 +11,8 @@ node_modules/
 # it's a direcotry whitch contains files and directory to be deployed on server
 # we can generate it automatically by running 'npm run deploy' on the command line in current directory.
 dist/
+
+
+
+#
+package/

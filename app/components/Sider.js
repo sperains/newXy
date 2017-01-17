@@ -41,6 +41,18 @@ export default class Sider extends Component {
 						router : 'active'
 					}
 				]
+			},
+			{ 
+				title : '生命数字'  , 
+				active : false ,
+				menuList : [
+					{
+						title : '生命数字项',
+						icon : 'test2',
+						active : true,
+						router : 'number'
+					}
+				]
 			}
 		]
 		}

@@ -1,6 +1,7 @@
 
 import React , {Component} from 'react';
 import './ActiveItem.scss';
+import {hashHistory} from 'react-router';
 
 export default class ActiveItem extends Component{
 	constructor(props) {
@@ -20,6 +21,10 @@ export default class ActiveItem extends Component{
 	onResize(){
 		// console.log('.active-item:',$(".active-item").width());
 		// $('.active-detail span').width($(".active-item").width() - 110 - 450)
+	}
+
+	onEditClick(){
+		hashHistory.push("/active-edit");
 	}
 
 	render() {
@@ -50,7 +55,7 @@ export default class ActiveItem extends Component{
 						{activeInfo.isOpenLimit ?  '(' + activeInfo.personCount +'/' +  activeInfo.activeLimit + ")"   : '' } <span onClick={onDetail}>报名详情</span>
 					</div>
 					<div className="active-item-right-bottom">
-						<span>编辑</span>
+						<span onClick={ ()=>this.onEditClick()}>编辑</span>
 					</div>
 				</div>
 			</div>
