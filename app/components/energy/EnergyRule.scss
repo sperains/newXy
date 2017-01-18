@@ -1,0 +1,94 @@
+
+.energy-rule-content{
+	margin-top: 30px;
+	margin-left: 35px;
+	margin-right: 35px;
+
+
+	.energy-rule-table{
+		color: #fff;
+		text-align: center;
+		line-height: 40px;
+		border-left: solid 1px #c3c3c3;
+		border-right: solid 1px #c3c3c3;
+		box-sizing:border-box;
+
+		&-header{
+			height: 40px;
+			background-color: #374260;
+			display: flex;
+			flex-direction: row;
+			font-size: 16px;
+			
+			&-name , &-status{
+				flex: 1
+			}
+			&-rule{
+				flex: 2
+			}
+
+		}
+
+		&-body{
+			color: #000;
+			font-size: 14px;
+			
+			&-row{
+				height: 40px;
+				display: flex;
+				flex-direction: row;
+				border-bottom: solid 1px #c3c3c3;
+
+				&-name , &-status{
+					flex: 1
+				}
+				&-rule{
+					flex: 2
+				}
+
+				&-status{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+
+					&-switch{
+						height: 30px;
+						width: 100px;
+						background-size: 220px 65px;
+						background-image: url(../../resources/images/switch-btn@2x.png);
+						background-position: -100px -35px;
+						cursor: pointer;
+					}
+					&-switch-open{
+						background-position: 0 -35px;
+					}
+
+					&-btn{
+						width: 21px;
+						height: 21px;
+						background-image: url(../../resources/images/option-btns@2x.png);
+						background-size: 66px 125px;
+						margin-left: 20px;
+						cursor: pointer;
+					}
+
+					&-edit{
+						background-position: -21px 0 ;
+					}
+					&-edit:hover{
+						background-position: 0 0 ;
+					}
+					&-delete{
+						background-position: -22px -21px;
+					}
+					&-delete:hover{
+						background-position: 0 -21px;
+					}
+
+				}
+				
+			}
+		}
+	}
+}

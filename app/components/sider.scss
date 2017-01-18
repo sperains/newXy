@@ -105,20 +105,60 @@
 						}
 						
 						/*正念训练项图标*/
-						.test1{
+						.train{
 							background-position: -22px 0;
 						}
-						.test1-active{
+						.train-active{
 							background-position: left 0;
 						}
 						
 						/**/
-						.test2{
+						.active{
 							background-position: -22px -22px;
 						}
-						.test2-active{
+						.active-active{
 							background-position: left -22px;
 						}
+						.number{
+							width: 25px;
+							height: 25px;
+							background-size: 50px 25px;
+							background-image: url(../resources/images/number2x.png);
+							background-position: -25px 0 ;
+						}
+						.number-active{
+							width: 25px;
+							height: 25px;
+							background-size: 50px 25px;
+							background-image: url(../resources/images/number2x.png);
+						}
+
+						.member{
+							background-position: -22px -44px;
+						}
+						.member-active{
+							background-position: left -44px;
+						}
+
+						.energy-rule{
+							background-position: -22px -66px;
+						}
+						.energy-rule-active{
+							background-position: left -66px;
+						}
+						.energy-rank{
+							background-position: -22px -88px;
+						}
+						.energy-rank-active{
+							background-position: left -88px;
+						}
+						.identity{
+							background-position: -22px -110px;
+						}
+						.identity-active{
+							background-position: left -110px;
+						}
+
 
 					}
 

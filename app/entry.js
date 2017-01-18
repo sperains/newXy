@@ -8,7 +8,11 @@ import Main from './containers/Main';
 import store from './store.js';
 import {Training , TraningItemEdit} from './components/training';
 import {Active , ActiveEdit , ActiveEnrollList } from './components/active';
+import {Member} from './components/member'; 
 import {Number } from './components/number';
+import {Identity , IdentityEdit} from './components/identity';
+import { EnergyRule , EnergyRank} from './components/energy';
+import {Feedback} from './components/feedback';
 import {UserAuthWrapper} from 'redux-auth-wrapper'
 
 let root = $('#container')[0];
@@ -37,12 +41,20 @@ ReactDOM.render(
     <Provider store={store}>
     	<Router history={hashHistory}>
     		<Route  path="/" component={Main}>
-    			<Route path="/train" component={Training} />
-    			<Route path="active" component={Active} />
-    			<Route path="active-edit" component={ActiveEdit} />
-                                      <Route path="/train-edit" component={TraningItemEdit} />
-                                      <Route path="active-detail" component={ActiveEnrollList} />
-                                      <Route path="number" component={Number} />
+                  <Route path="" component={Training} />
+		     <Route path="/train" component={Training} />
+    		     <Route path="/active" component={Active} />
+    		     <Route path="/active-edit" component={ActiveEdit} />
+                  <Route path="/train-edit" component={TraningItemEdit} />
+                  <Route path="/active-detail" component={ActiveEnrollList} />
+                  <Route path="/number" component={Number} />
+                  <Route path="/member" component={Member} />
+                  <Route path="/energy-rule" component={EnergyRule} />
+                  <Route path="/energy-rank" component={EnergyRank} />
+                  <Route path="/identity" component={Identity} />
+                  <Route path="/identity-edit" component={IdentityEdit} />
+                  <Route path="/feedback" component={Feedback} />
+                                      
     		</Route>
     	</Router>
     </Provider>,

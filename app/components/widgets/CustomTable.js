@@ -1,3 +1,4 @@
+// 自定义表格
 
 import React , {Component} from 'react';
 import './CustomTable.scss';
@@ -6,7 +7,7 @@ import {Input , Table  , Icon} from 'antd';
 const Search = Input.Search;
 
 const columns = [
-	{	title : '序号' , dataIndex : 'key' ,},
+	{	title : '序号' , dataIndex : 'key' , width : 50},
 	{	title: '姓名',	dataIndex: 'name', width: 200 }, 
 	{	title: '电话',	dataIndex: 'phone',	width: 110}, 
 	{	title: '预到意向',	dataIndex: 'itention', width: 80	 }, 

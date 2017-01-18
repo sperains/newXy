@@ -1,0 +1,35 @@
+
+
+.number-overview-wrap{
+	
+	.number-overview{
+		display: flex;
+		flex-direction: row;
+		
+		.ant-input{
+			min-height: 40px;
+			max-width: 600px;
+		}
+		
+		&-label{
+			width: 70px;
+			font-size: 16px;
+			letter-spacing: 15px;
+		}
+
+		&-content{
+			height: 200px;
+			width: 600px;
+			font-size: 14px;
+		}
+
+		&-edit{
+			margin-left: 30px;
+			width: 21px;
+			height: 21px;
+			background-image: url(../../resources/images/option-btns@2x.png);
+			background-size: 66px 125px;
+			cursor: pointer;
+		}
+	}
+}

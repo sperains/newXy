@@ -2,7 +2,7 @@
 import React , {Component} from 'react';
 import './Number.scss';
 import { ContentNav} from '../widgets';
-import {NumberDesc , FateNumber , TalentNumber} from './';
+import {NumberDesc , FateNumber , TalentNumber , BabyNumber} from './';
 
 export default class Number extends Component{
 
@@ -42,7 +42,7 @@ export default class Number extends Component{
 		let currentEl ;
 		switch(this.state.currentTabIndex){
 			case 0 : currentEl = <NumberDesc />;break;
-			case 1 : currentEl = <NumberDesc />;break;
+			case 1 : currentEl = <BabyNumber />;break;
 			case 2 : currentEl = <FateNumber />;break;
 			case 3 : currentEl = <TalentNumber />;break;
 		}

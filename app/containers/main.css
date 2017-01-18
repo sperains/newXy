@@ -8,14 +8,17 @@
 /*设置内容区绝对定位*/
 .content{
 	flex: 1;
-	height: 1000px;
 	overflow-y: hidden;
+	overflow-x: scroll;
 	display: flex;
 	flex-direction: row;
 }
 
 .right-wrap{
 	flex: 1;
+	min-width: 1116px;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 .wrapperContainer{

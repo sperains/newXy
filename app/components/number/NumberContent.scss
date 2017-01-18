@@ -3,9 +3,9 @@
 	position: absolute;
 	top: 0;
 	bottom: 110px;
-	overflow-y: scroll;
 	display: flex;
 	flex-direction: row;
+	overflow-y: scroll;
 
 	.ant-tabs-content{
 		height: 600px;

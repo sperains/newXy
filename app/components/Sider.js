@@ -24,7 +24,7 @@ export default class Sider extends Component {
 				menuList : [
 					{
 						title : '正念训练项',
-						icon : 'test1',
+						icon : 'train',
 						active : true,
 						router : 'train'
 					}
@@ -36,7 +36,7 @@ export default class Sider extends Component {
 				menuList : [
 					{
 						title : '喜悦活动项',
-						icon : 'test2',
+						icon : 'active',
 						active : true,
 						router : 'active'
 					}
@@ -48,12 +48,78 @@ export default class Sider extends Component {
 				menuList : [
 					{
 						title : '生命数字项',
-						icon : 'test2',
+						icon : 'number',
 						active : true,
 						router : 'number'
 					}
 				]
-			}
+			},
+			{ 
+				title : '会员管理'  , 
+				active : false ,
+				menuList : [
+					{
+						title : '会员管理项',
+						icon : 'member',
+						active : true,
+						router : 'member'
+					}
+				]
+			},
+			{ 
+				title : '能量管理'  , 
+				active : false ,
+				menuList : [
+					{
+						title : '能量规则',
+						icon : 'energy-rule',
+						active : true,
+						router : 'energy-rule'
+					},
+					{
+						title : '能量排名',
+						icon : 'energy-rank',
+						active : false,
+						router : 'energy-rank'
+					}
+				]
+			},
+			{ 
+				title : '捐赠管理'  , 
+				active : false ,
+				menuList : [
+					{
+						title : '捐赠管理项',
+						icon : 'member',
+						active : true,
+						router : 'member'
+					}
+				]
+			},
+			{ 
+				title : '问卷反馈'  , 
+				active : false ,
+				menuList : [
+					{
+						title : '问卷反馈项',
+						icon : 'member',
+						active : true,
+						router : 'feedback'
+					}
+				]
+			},
+			{ 
+				title : '职级管理'  , 
+				active : false ,
+				menuList : [
+					{
+						title : '职级管理项',
+						icon : 'identity',
+						active : true,
+						router : 'identity'
+					}
+				]
+			},
 		]
 		}
 		this.onMenuSelect = this.onMenuSelect.bind(this);
@@ -69,10 +135,10 @@ export default class Sider extends Component {
 	onMenuSelect( menu , index){
 		// console.log(menu , index);
 		let menuList = this.state.menuList;
-		// 如果点击的是当前展开的菜单则不做操作;
+		// 如果点击的是当前展开的菜单则收起菜单;
 		if(this.state.openKey == index){
-			// menuList[index].active = !menuList[index].active;
-			// this.setState({menuList});
+			menuList[index].active = !menuList[index].active;
+			this.setState({menuList});
 			return ;
 		}
 
@@ -103,6 +169,7 @@ export default class Sider extends Component {
 			menu.menuList.forEach((subMenu , subI)=>{
 				if(subIndex == subI){
 					subMenu.active = true;
+					hashHistory.push('/' + subMenu.router);
 				}else{
 					subMenu.active = false;
 				}

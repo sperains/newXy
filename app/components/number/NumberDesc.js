@@ -3,6 +3,7 @@
 import React , {Component} from 'react';
 import './NumberDesc.scss';
 import {Input} from 'antd';
+import {NumberOverview} from './';
 
 export default class NumberDesc extends Component{
 	constructor(props) {
@@ -12,13 +13,9 @@ export default class NumberDesc extends Component{
 	render() {
 		return (
 			<div className="number-desc-wrap">
-				<div className="number-desc">
-					<span className="number-desc-label">概述</span>
-					<div className="number-desc-content">
-						<Input style={{ width : '600px' }} type="textarea" placeholder="Autosize height based on content lines" autosize disabled />
-					</div>
-					<div className="number-desc-edit"></div>
-				</div>
+				<NumberOverview 
+				onEdit={()=>console.log('number-desc edit')}
+				/>
 			</div>
 		)
 	}
