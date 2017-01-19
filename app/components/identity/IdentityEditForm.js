@@ -15,12 +15,11 @@ export default class IdentityEditForm extends Component{
 				<div className="identity-edit-form-item">
 					<div className="identity-edit-form-item-label">职级类别<span></span></div>
 					<div className="identity-edit-form-item-content">
-						<Select defaultValue="lucy" style={{ width: 540 }} >
-						      <Option value="jack">Jack</Option>
-						      <Option value="lucy">Lucy</Option>
-						      <Option value="disabled" disabled>Disabled</Option>
-						      <Option value="Yiminghe">yiminghe</Option>
-					    </Select>
+						<Select defaultValue="2" style={{ width: 540 }} >
+						      <Option value="1">超级管理员</Option>
+						      <Option value="2">管理员</Option>
+						      <Option value="3">员工</Option>
+					    	</Select>
 					</div>
 				</div>
 				<div className="identity-edit-form-item">
@@ -44,7 +43,7 @@ export default class IdentityEditForm extends Component{
 				<div className="identity-edit-form-item">
 					<div className="identity-edit-form-item-label">开启微信验证<span></span></div>
 					<div className="identity-edit-form-item-content">
-						<Input />
+						<div className="identity-edit-form-item-content-checkbox"></div>
 					</div>
 				</div>
 				<div className="identity-edit-form-item identity-edit-form-item-auto">

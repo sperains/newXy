@@ -49,7 +49,7 @@ export default class NumberContent extends Component{
 									<Input style={{ width : '600px' }} type="textarea" placeholder={detail.content} autosize />
 									<div onClick={()=>this.onEditDetailClick(detail.id)} className="number-form-item-edit"></div>
 									{
-										index != 0 ? <div onClick={()=>this.onDelDetailClick(detail.id)} className="number-form-item-delete"></div> : ''
+										index != 0 && <div onClick={()=>this.onDelDetailClick(detail.id)} className="number-form-item-delete"></div> 
 									}
 								</div>
 							)

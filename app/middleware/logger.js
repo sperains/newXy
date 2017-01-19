@@ -5,9 +5,9 @@
  */
 
 const logger = ({ dispatch, getState }) => next => action => {
-    console.log('logger before', getState());
+    // console.log('logger before', getState());
     let result = next(action);
-    console.log('logger after', getState());
+    // console.log('logger after', getState());
     return result;
 }
 

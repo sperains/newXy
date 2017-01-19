@@ -90,9 +90,9 @@ export default class Sider extends Component {
 				menuList : [
 					{
 						title : '捐赠管理项',
-						icon : 'member',
+						icon : 'donation',
 						active : true,
-						router : 'member'
+						router : 'donation'
 					}
 				]
 			},

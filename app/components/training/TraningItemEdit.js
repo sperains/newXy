@@ -56,8 +56,6 @@ export default class TraningItemEdit extends Component{
 	}
 
 	componentDidMount() {
-		
-
 		this.editorInit();
 	}
 
@@ -137,7 +135,7 @@ export default class TraningItemEdit extends Component{
 						</div>
 					</div>
 					<div className="traningitem-edit-options">
-						<div className="traningitem-edit-options-btn">完成</div>
+						<div className="traningitem-edit-options-btn"><div>完成<span></span></div></div>
 					</div>
 				</div>
 			</Modal>

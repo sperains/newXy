@@ -3,6 +3,7 @@ import React , {Component} from 'react';
 import './Identity.scss';
 import {ContentNav} from '../widgets';
 import DataStore from '../../utils/DataStore';
+import {hashHistory} from 'react-router';
 const columns =[
 	{ title : '级别' , cls : 'level' },
 	{ title : '登录账号' , cls : 'username' },
@@ -22,9 +23,21 @@ export default class Identity extends Component{
 	componentDidMount() {
 		let me = this ;
 		DataStore.getIdentityInfo().then( data=>{
-			console.log(data);
+			// console.log(data);
 			me.setState({data});
 		})
+	}
+
+	onNewIdentityClick(){
+		hashHistory.push('/identity/new' );
+	}
+
+	onEditClick(identity,index){
+		hashHistory.push('/identity/edit' );
+	}
+
+	onDeleteClick(identity,index){
+		console.log(index);
 	}
 
 	render() {
@@ -32,7 +45,7 @@ export default class Identity extends Component{
 			<div className="identity-wrap">
 				<ContentNav 
 					title="职级管理项"
-					btnOpts={[{text:'新建职位',onClick:()=>console.log('new identity')}]}
+					btnOpts={[{text:'新建职位',onClick:()=>this.onNewIdentityClick()}]}
 				/>
 				<div className="identity-content">
 					<div className="identity-content-table">
@@ -57,8 +70,8 @@ export default class Identity extends Component{
 												<span><p>正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练正念训练</p></span>
 											</div>
 											<div className={'identity-content-table-body-row-' +columns[4].cls }>
-												<div className={'identity-content-table-body-row-' +columns[4].cls +'-edit'}></div>
-												<div className={'identity-content-table-body-row-' +columns[4].cls +'-delete'}></div>
+												<div onClick={()=>this.onEditClick(identity,index)} className={'identity-content-table-body-row-' +columns[4].cls +'-edit'}></div>
+												<div onClick={()=>this.onDeleteClick(identity,index)} className={'identity-content-table-body-row-' +columns[4].cls +'-delete'}></div>
 											</div>
 										</div>
 									)

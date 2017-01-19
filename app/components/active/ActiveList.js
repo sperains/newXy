@@ -29,7 +29,6 @@ class ActiveList extends Component{
 
 	render() {
 		const {activeList} = this.props;
-		console.log('activeList' : activeList);
 		return (
 			<div className="active-list">
 				{

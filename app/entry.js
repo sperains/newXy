@@ -11,8 +11,9 @@ import {Active , ActiveEdit , ActiveEnrollList } from './components/active';
 import {Member} from './components/member'; 
 import {Number } from './components/number';
 import {Identity , IdentityEdit} from './components/identity';
-import { EnergyRule , EnergyRank} from './components/energy';
+import { EnergyRule , EnergyRank , EnergyRuleEdit} from './components/energy';
 import {Feedback} from './components/feedback';
+import {Donation} from './components/donation';
 import {UserAuthWrapper} from 'redux-auth-wrapper'
 
 let root = $('#container')[0];
@@ -50,11 +51,13 @@ ReactDOM.render(
                   <Route path="/number" component={Number} />
                   <Route path="/member" component={Member} />
                   <Route path="/energy-rule" component={EnergyRule} />
+                  <Route path="/energy-rule/edit" component={EnergyRuleEdit} />
                   <Route path="/energy-rank" component={EnergyRank} />
                   <Route path="/identity" component={Identity} />
-                  <Route path="/identity-edit" component={IdentityEdit} />
+                  <Route path="/identity/:type" component={IdentityEdit} />
                   <Route path="/feedback" component={Feedback} />
-                                      
+                  <Route path="/donation" component={Donation} />
+                  
     		</Route>
     	</Router>
     </Provider>,

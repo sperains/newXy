@@ -1,6 +1,7 @@
 
 .identity-edit-form{
-	width: auto;
+	width: 900px;
+	margin: 0 auto;
 	
 	&-item{
 		display: flex;
@@ -43,6 +44,13 @@
 				}
 			}
 
+			&-checkbox{
+				width: 35px;height: 35px;
+				background-image: url(../../resources/images/status@2x.png);
+				background-size: 70px 53px;
+				cursor: pointer;
+			}
+
 			.ant-input{
 				width: 540px;
 				height: 40px;
@@ -64,6 +72,7 @@
 						width: 35px;height: 35px;
 						background-image: url(../../resources/images/status@2x.png);
 						background-size: 70px 53px;
+						cursor: pointer;
 					}
 			}
 		}

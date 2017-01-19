@@ -2,7 +2,10 @@
 
 import React , {Component} from 'react';
 import './EnergyRule.scss';
-import  {ContentNav} from '../widgets';
+import {ContentNav} from '../widgets';
+import {EnergyRuleEdit} from './';
+import DataStore from '../../utils/DataStore';
+import { connect } from 'react-redux';
 
 const columns = [
 	{ title : '项目' , cls : 'name' },
@@ -10,98 +13,65 @@ const columns = [
 	{ title : '开启状态' , cls : 'status'},
 ]
 
-const data =  [
-    {
-      "id": "1",
-      "name": "正念静坐",
-      "rule": 2,
-      "ruleName": "点能量/次",
-      "integral": 5,
-      "isOpen": 1,
-      "type": 0
-    },
-    {
-      "id": "2",
-      "name": "正念行走",
-      "rule": 2,
-      "ruleName": "点能量/次",
-      "integral": 5,
-      "isOpen": 0,
-      "type": 0
-    },
-    {
-      "id": "3",
-      "name": "正念散步",
-      "rule": 2,
-      "ruleName": "点能量/次",
-      "integral": 5,
-      "isOpen": 1,
-      "type": 0
-    },
-    {
-      "id": "4",
-      "name": "正念睡眠",
-      "rule": 2,
-      "ruleName": "点能量/次",
-      "integral": 5,
-      "isOpen": 0,
-      "type": 0
-    },
-    {
-      "id": "5",
-      "name": "活动报名",
-      "rule": 2,
-      "ruleName": "点能量/次",
-      "integral": 0,
-      "isOpen": 0,
-      "type": 0
-    },
-    {
-      "id": "6",
-      "name": "活动签到",
-      "rule": 2,
-      "ruleName": "点能量/次",
-      "integral": 50,
-      "isOpen": 1,
-      "type": 0
-    },
-    {
-      "id": "7",
-      "name": "生命数字",
-      "rule": 2,
-      "ruleName": "点能量/次",
-      "integral": 2,
-      "isOpen": 1,
-      "type": 0
-    },
-    {
-      "id": "8",
-      "name": "喜悦捐赠",
-      "rule": 1,
-      "ruleName": "点能量/元",
-      "integral": 1,
-      "isOpen": 0,
-      "type": 0
-    }
-  ]
-
-
-
-export default class EnergyRule extends Component{
+class EnergyRule extends Component{
 	constructor(props) {
 		super(props);
+             this.state={
+                  ruleEditDisplay : false ,
+                  // ruleEditType : 1  ,  //1 新建 2编辑   
+                  // currentRule : {}
+             }
 	}
 
 	componentDidMount() {
-		
+        DataStore.getIntegralRule().then(data=>{
+            console.log(data);
+            this.props.dispatch({
+              type : 'GET_RULE_LIST',
+              ruleList : data
+            })
+        })
 	}
+
+      onNewRuleClick(){
+            this.props.dispatch({type : 'GET_CURRENT_RULE'});
+            this.setState({ruleEditDisplay : true})
+      }
+
+      onEnergyRuleEditCloseClick(){
+            this.setState({
+                ruleEditDisplay : false
+            })
+      }
+
+      onRuleStateChange(item , index){
+        let flag = !item.isOpen ? 1 : 0 ;
+        this.props.dispatch({
+              type : 'RULE_STASTE_CHANGE',
+              index : index
+            })
+      }
+
+      // 编辑能量规则
+      onEditRuleClick(item , index){
+        this.props.dispatch({type : 'GET_CURRENT_RULE' , index : index});
+        this.setState({ruleEditDisplay : true , currentRuleInfo : item , ruleEditType : 2});
+      }
+
+      // 删除能量规则
+      onDeleteRuleClick(item , index){
+        this.props.dispatch({
+              type : 'DELETE_RULE_LIST',
+              index : index
+            })
+      }
 
 	render() {
 		return (
 			<div className="energy-rule-wrap">
 				<ContentNav 
 				 title="能量规则"
-				 btnOpts={[{text : '新建规则' , onClick:()=>console.log('new Rule')}]}
+				 btnOpts={[{text : '新建规则' , onClick:()=>this.onNewRuleClick()}]}
 				/>
 				<div className="energy-rule-content">
 					<div className="energy-rule-table">
@@ -112,17 +82,16 @@ export default class EnergyRule extends Component{
 						</div>
 						<div className="energy-rule-table-body">
 							{
-								data.map( (item , index)=>{
+								this.props.ruleList.map( (item , index)=>{
 									return (
 										<div key={index} className="energy-rule-table-body-row">
 											<span className="energy-rule-table-body-row-name">{item.name}</span>
 											<span className="energy-rule-table-body-row-rule">{item.integral} {item.ruleName}</span>
 											<div className="energy-rule-table-body-row-status">
-												<div className={item.isOpen ?"energy-rule-table-body-row-status-switch energy-rule-table-body-row-status-switch-open" : 'energy-rule-table-body-row-status-switch'}></div>
-												<div className="energy-rule-table-body-row-status-btn energy-rule-table-body-row-status-edit"></div>
-												<div className="energy-rule-table-body-row-status-btn energy-rule-table-body-row-status-delete"></div>
+												<div onClick={()=>this.onRuleStateChange(item,index)} className={item.isOpen ?"energy-rule-table-body-row-status-switch energy-rule-table-body-row-status-switch-open" : 'energy-rule-table-body-row-status-switch'}></div>
+												<div onClick={()=>this.onEditRuleClick(item,index)} className="energy-rule-table-body-row-status-btn energy-rule-table-body-row-status-edit"></div>
+												<div onClick={()=>this.onDeleteRuleClick(item,index)} className="energy-rule-table-body-row-status-btn energy-rule-table-body-row-status-delete"></div>
 											</div>
-											
 										</div>
 									)
 								})
@@ -130,7 +99,19 @@ export default class EnergyRule extends Component{
 						</div>
 					</div>
 				</div>
+                          { 
+                            this.state.ruleEditDisplay && <EnergyRuleEdit 
+                                  ruleInfo={ this.props.currentRule }
+                                  onClose={()=>this.onEnergyRuleEditCloseClick()} 
+                                  />
+                          }
 			</div>
 		)
 	}
 }
+
+const mapStateToProps= state=>{
+  return {ruleList : state.energy.ruleList , currentRule : state.energy.currentRule} 
+}
+
+export default connect(mapStateToProps)(EnergyRule);

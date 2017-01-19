@@ -131,12 +131,12 @@ export default class Training extends Component{
 					
 					
 					{
-						this.state.modalIsOpen ? 
+						this.state.modalIsOpen && 
 						<TraningItemEdit 
 						modalIsOpen={true}
 						onClose={this.onTraningItemEditCloseClick}
 						content={this.state.currentTrainingItem}
-						/> : ''
+						/> 
 					}
 					
 				</div>
