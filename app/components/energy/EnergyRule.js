@@ -18,14 +18,11 @@ class EnergyRule extends Component{
 		super(props);
              this.state={
                   ruleEditDisplay : false ,
-                  // ruleEditType : 1  ,  //1 新建 2编辑   
-                  // currentRule : {}
              }
 	}
 
 	componentDidMount() {
         DataStore.getIntegralRule().then(data=>{
-            console.log(data);
             this.props.dispatch({
               type : 'GET_RULE_LIST',
               ruleList : data
@@ -61,7 +58,7 @@ class EnergyRule extends Component{
       // 删除能量规则
       onDeleteRuleClick(item , index){
         this.props.dispatch({
-              type : 'DELETE_RULE_LIST',
+              type : 'DELETE_RULE',
               index : index
             })
       }

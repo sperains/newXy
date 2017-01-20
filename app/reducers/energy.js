@@ -16,15 +16,11 @@ const energyReducerHandlers = {
 	[actionTypes.energy.deleteRule] : (state,action)=>{
 		let ruleList = state.ruleList;
 		ruleList.splice(action.index , 1);
-		return {isRequest : true , ruleList : [...ruleList]}
+		return { ruleList : [...ruleList]}
 	},
 	[actionTypes.energy.ruleStateChange] : (state,action)=>{
 		let ruleList = state.ruleList;
-		ruleList.forEach( (rule,index)=>{
-			if(index==action.index){
-				rule.isOpen = !rule.isOpen
-			}
-		})
+		ruleList[action.index].isOpen=!ruleList[action.index].isOpen
 		return {ruleList : [...ruleList]}
 	},
 	[actionTypes.energy.getCurrentRule] : (state,action)=>{

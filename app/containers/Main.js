@@ -16,13 +16,15 @@ class Main extends Component{
         super(props);
     }
 
-    componentDidMount() {
+    componentWillMount() {
+        hashHistory.push("/train")        
+    }
 
+    componentDidMount() {
 
     }
 
     componentWillUnmount() {
-        // this.editorObj.destroy();
     }
 
 // {this.props.children}

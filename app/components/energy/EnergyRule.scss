@@ -38,6 +38,7 @@
 				display: flex;
 				flex-direction: row;
 				border-bottom: solid 1px #c3c3c3;
+				box-sizing: border-box;
 
 				&-name , &-status{
 					flex: 1

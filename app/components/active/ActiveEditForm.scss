@@ -65,14 +65,9 @@
 			&-input:hover{
 				border: solid 1px #108ee9;
 			}
-
-			/*外链输入框长度*/
-			&-outsite{
-				width: 260px;
-			}
 			
 			/*活动地址,人数限定,预到意向 输入框长度*/
-			&-address , &-person-limit , &-intention{
+			&-address , &-person-limit , &-intention , &-outsite{
 				flex: 1;
 			}
 

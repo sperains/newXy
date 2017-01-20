@@ -162,48 +162,50 @@ export default class Sider extends Component {
 		this.setState({menuList , openKey});
 	}
 
-	onSubMenuClick(subMenu , subIndex){
-		// console.log(menu , index , subMenu , subIndex);
+	onSubMenuClick(subMenu , subIndex , index){
 		let menuList = this.state.menuList;
-		menuList.forEach( (menu , i )=>{
-			menu.menuList.forEach((subMenu , subI)=>{
-				if(subIndex == subI){
-					subMenu.active = true;
-					hashHistory.push('/' + subMenu.router);
-				}else{
-					subMenu.active = false;
-				}
-			})
+		let menu = menuList[index];
+		menu.menuList.forEach( (m , i)=>{
+			if(i == subIndex){
+				m.active = true;
+				hashHistory.push('/' + m.router)
+			}else{
+				m.active = false
+			}
 		})
 		this.setState({menuList});
-
 	}
 
+	onCollapseClick(){
+		this.setState({
+			collapse : !this.state.collapse
+		})
+	}
 
 
 	render() {
 	    return (
-	      <div className="sider-wrap" style={{ width : this.state.collapse ? '40px' : '240px' }}>
-	      		<div className="collapse-wrap" >
-	      			<div className="collapse-wrap-img"></div>
+	      <div className="sider-wrap" style={{ width : this.state.collapse ? '40px' : '240px' , minWidth : this.state.collapse ? '40px' : '240px'  }}>
+	      		<div className="collapse-wrap" onClick={()=>{this.onCollapseClick()}} >
+	      			<div className={this.state.collapse ? 'collapse-wrap-img collapse-wrap-img-collapse' : 'collapse-wrap-img'}></div>
 	      		</div>
 	      		<div className="menu-wrap">
 	      			<ul className="menu-list">
 	      			{
 	      				this.state.menuList.map( (menu,index) =>{
 	      					return (
-	      						<li key={index} className='menu-item' style={{height : menu.active ? (menu.menuList.length+1) * 50 + 'px' : '50px'}}>
+	      						<li key={index} className={this.state.collapse ? 'menu-item menu-item-collapse':'menu-item'} style={{height : menu.active ? (menu.menuList.length+1) * 50 + 'px' : '50px'}}>
 			      					<div className="menu-item-title" onClick={()=>this.onMenuSelect(menu , index)}>
 			      						<div className={menu.active ? 'arrow-icon arrow-icon-open' : 'arrow-icon'}></div>
 			      						<span className="">{menu.title}</span>
 			      					</div>
 			      					{
-			      						<ul ref="menu_ul" className= 'menu-item-sublist'>
+			      						<ul ref="menu_ul" className='menu-item-sublist'>
 				      						{
 				      							menu.menuList.map( (subMenu , subIndex)=>(
 					      							<li key={subIndex} 
 					      							className={subMenu.active ? 'menu-item-sub menu-item-sub-active' : 'menu-item-sub'}
-					      							onClick={()=>this.onSubMenuClick(subMenu , subIndex)}
+					      							onClick={()=>this.onSubMenuClick(subMenu , subIndex , index)}
 					      							>
 					      								<div className={"menu-icon " + (subMenu.active ? subMenu.icon+'-active' : subMenu.icon)} ></div>
 					      								<span className="menu-item-sub-title">{subMenu.title}</span>

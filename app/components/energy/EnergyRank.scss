@@ -1,6 +1,19 @@
 
+.energy-rank-wrap{
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+
 .energy-rank-content{
 	margin-top: 20px;
 	margin-left: 35px;
 	margin-right: 35px;
+
+
+	.ant-table-tbody tr td , .ant-table-fixed tr td{
+		padding: 4px 0 ;
+	}
 }

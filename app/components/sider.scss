@@ -1,17 +1,16 @@
 
-/*左侧菜单最外层div*/
+/*左侧菜单区域*/
 .sider-wrap{
 	height: 100%;
 	width: 250px;
-	min-width: 250px;
 	transition: all 0.2s;
 	display: flex;
 	flex-direction: column;
 	background-color: #38444c;
 
-
 	.collapse-wrap{
 		height: 35px;
+		min-height: 35px;
 		width: 100%;
 		display: flex;
 		flex-direction: row;
@@ -25,12 +24,19 @@
 			background-image: url(../resources/images/collapse@2x.png);
 			background-size: contain;
 		}
+
+		.collapse-wrap-img-collapse{
+			transform:rotate(90deg);
+			-ms-transform:rotate(90deg); 	/* IE 9 */
+			-moz-transform:rotate(90deg); 	/* Firefox */
+			-webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+			-o-transform:rotate(90deg); 	
+		}
 	}
 	
-	/*左侧菜单最外层容器*/
+	/*菜单列表包裹层*/
 	.menu-wrap{
 		flex: 1;
-		
 		/*菜单ul*/
 		.menu-list{
 			color: #ececec;
@@ -74,7 +80,7 @@
 					}
 				}
 
-
+				
 				
 				/*子菜单ul*/
 				.menu-item-sublist{
@@ -84,21 +90,23 @@
 						transition: all 0.3s;
 						height: 50px;
 						line-height:  50px;
-						display: flex;
-						flex-direction: row;
-						align-items: center;
 						padding-left: 45px;
+						position: relative;
 
 						.menu-icon , .menu-item-sub-title{
 							display: inline-block;
 						}
 
+						.menu-item-sub-title{
+							position: absolute;
+							left: 85px;
+						}
+
 						.menu-icon {
 							width: 22px;
 							height: 22px;
-							
+							margin : 14px 0 ;
 							margin-right: 20px;
-							/*margin:  14px 0 ;*/
 							background-size: 44px 132px;
 							background-image: url(../resources/images/menuicon@2x.png);
 							background-repeat: no-repeat;
@@ -137,46 +145,76 @@
 							background-position: -22px -44px;
 						}
 						.member-active{
-							background-position: left -44px;
+							background-position: 0 -44px;
 						}
 
 						.energy-rule{
 							background-position: -22px -66px;
 						}
 						.energy-rule-active{
-							background-position: left -66px;
+							background-position: 0 -66px;
 						}
 						.energy-rank{
 							background-position: -22px -88px;
 						}
 						.energy-rank-active{
-							background-position: left -88px;
+							background-position: 0 -88px;
 						}
 						.identity{
 							background-position: -22px -110px;
 						}
 						.identity-active{
-							background-position: left -110px;
+							background-position: 0 -110px;
 						}
-
-
 					}
-
 					.menu-item-sub-active{
-						border-left: solid 10px orange;
+						border-left: solid 10px #ffb400;
 						padding-left: 35px;
-						color: orange;
+						color: #ffb400;
+						position: relative;
+
+						.menu-item-sub-title{
+							position: absolute;
+							left: 75px;
+						}
+					}
+				}
+			}
+			.menu-item-collapse{
+				.menu-item-title{
+					padding: 0;
+					margin :0;
+					position: relative;
+					.arrow-icon{
+						position: absolute;
+						left: -30px;
+						top: 20px;
+					}
+					span{
+						display: none;
+					}
+				}
+				
+				.menu-item-sublist{
+					.menu-item-sub, .menu-item-sub-active{
+						border: none;
 					}
 
+					.menu-item-sub{
+						display: block;
+						position: relative;
+						.menu-icon{
+							position: absolute;
+							left: 8px;
+						}
+						.menu-item-sub-title{
+							display: none;
+						}
+					}
 				}
-
-
-		
-
+				
 			}
-
 		}
-
 	}
 }
 

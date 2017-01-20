@@ -16,7 +16,7 @@ export default class NumberOverview extends Component{
 				<div className="number-overview">
 					<span className="number-overview-label">概述</span>
 					<div className="number-overview-content">
-						<Input style={{ width : '600px' }} type="textarea" placeholder="Autosize height based on content lines" autosize disabled />
+						<Input style={{ width : '600px' }} type="textarea" placeholder="Autosize height based on content lines" autosize disabled={false} />
 					</div>
 					<div onClick={onEdit} className="number-overview-edit"></div>
 				</div>
