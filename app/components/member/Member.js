@@ -60,6 +60,7 @@ export default class Member extends Component{
 					<CustomTable 
 						columns={columns}
 						dataSource={data}
+						scroll={{x : 1200}}
 					/>
 				</div>
 				

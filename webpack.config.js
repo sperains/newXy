@@ -25,7 +25,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 // const lessLoader = 'style!css!less?{"modifyVars":'+ JSON.stringify(theme)+'}';
 
 
-const localHost = '192.168.31.173';
+const localHost = '192.168.0.111';
 const port = 8088;
 
 var isProduction = function () {

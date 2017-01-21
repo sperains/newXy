@@ -62,7 +62,7 @@ export default class EnergyRuleEdit extends Component{
 		if(!(/^[0-9]*[1-9][0-9]*$/).test(integral)){
 			return ;
 		}
-		this.setState({integral});
+		this.setRuleInfo('integral' ,integral );
 	}
 
 	onRuleChange(value){

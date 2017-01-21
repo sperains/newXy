@@ -43,7 +43,7 @@ ReactDOM.render(
     	<Router history={hashHistory}>
     		<Route  path="/" component={Main}>
                   <Route path="" component={Training} />
-		     <Route path="/train" component={Training} />
+		     <Route path="/train" component={Training}/>
     		     <Route path="/active" component={Active} />
     		     <Route path="/active-edit" component={ActiveEdit} />
                   <Route path="/train-edit" component={TraningItemEdit} />

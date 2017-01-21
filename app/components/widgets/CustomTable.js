@@ -2,7 +2,7 @@
 
 import React , {Component} from 'react';
 import './CustomTable.scss';
-import {Input , Table  , Icon , Pagination} from 'antd';
+import {Input , Table  , Icon , Pagination ,Message} from 'antd';
 
 const Search = Input.Search;
 
@@ -16,17 +16,6 @@ export default class CustomTable extends Component{
 		}
 	}
 
-	onPageSizeChange(e){
-		console.log(e.key);
-		// let pageSize = e.target.value;
-		// console.log(pageSize);
-		if(!(/^[0-9]*[1-9][0-9]*$/).test(pageSize)){
-			return ;
-		}
-		if(e.key === 'Enter'){
-			this.setState({pageSize});
-		}
-	}
 
 	onEnterPress(e){
 		let pageSize = parseInt(e.target.value);
