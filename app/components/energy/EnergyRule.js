@@ -52,7 +52,7 @@ class EnergyRule extends Component{
       // 编辑能量规则
       onEditRuleClick(item , index){
         this.props.dispatch({type : 'GET_CURRENT_RULE' , index : index});
-        this.setState({ruleEditDisplay : true , currentRuleInfo : item , ruleEditType : 2});
+        this.setState({ruleEditDisplay : true , ruleEditType : 2});
       }
 
       // 删除能量规则

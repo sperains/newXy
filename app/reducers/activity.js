@@ -7,20 +7,37 @@ import {actionTypes} from '../constants'
 
 const initialState = {
 	isRequest:false,
-	data:[]
+	list:[],
+      current : {},
+      enrollList :[]
 }
 
 /*
 * reducer函数集
 * */
 const activityReducerHandlers = {
-    [actionTypes.activity.add] : (state,action) => {
-        return {isRequest:true,data:action.activeList}
+    [actionTypes.activity.getList] : (state,action) => {
+        return {isRequest:true,list:action.activeList}
     },
     [actionTypes.activity.delete] : (state,action)=>{
-    	let activeList = state.data;
+    	let activeList = state.list;
       	activeList.splice(action.index , 1);
-      	return {isRequest:true,data:[...activeList]};
+      	return {list:[...activeList]};
+    },
+    [actionTypes.activity.releaseStateChange] : (state,action)=>{
+      // let activeList = [...state.list];
+      // activeList[action.index] = Object.assign({} , activeList[action.index] );
+      // activeList[action.index].release  = !activeList[action.index].release 
+      let activeList = state.list;
+      activeList[action.index].release = !activeList[action.index].release ? 1 : 0 
+      return {list : [...activeList]}
+    },
+    [actionTypes.activity.getEnrollList] : (state,action)=>{
+      return {enrollList : action.enrollList}
+    },
+    [actionTypes.activity.current] : (state,action)=>{
+      let current = state.list[action.index];
+      return {current}
     }
 }
 

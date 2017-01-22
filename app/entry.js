@@ -45,9 +45,9 @@ ReactDOM.render(
                   <Route path="" component={Training} />
 		     <Route path="/train" component={Training}/>
     		     <Route path="/active" component={Active} />
-    		     <Route path="/active-edit" component={ActiveEdit} />
+                  <Route path="/active/enroll-list" component={ActiveEnrollList} />
+    		     <Route path="/active/:type" component={ActiveEdit} />
                   <Route path="/train-edit" component={TraningItemEdit} />
-                  <Route path="/active-detail" component={ActiveEnrollList} />
                   <Route path="/number" component={Number} />
                   <Route path="/member" component={Member} />
                   <Route path="/energy-rule" component={EnergyRule} />
@@ -57,7 +57,6 @@ ReactDOM.render(
                   <Route path="/identity/:type" component={IdentityEdit} />
                   <Route path="/feedback" component={Feedback} />
                   <Route path="/donation" component={Donation} />
-                  
     		</Route>
     	</Router>
     </Provider>,

@@ -10,5 +10,13 @@
 	}
 
 
-	
+	td a.width-list {
+		display: block;
+		width: 520px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-decoration: none;
+		color: #000;
+	}
 }

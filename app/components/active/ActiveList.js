@@ -2,45 +2,40 @@
 import React , {Component} from 'react';
 import ActiveItem from './ActiveItem';
 import './ActiveList.scss';
+import DataStore from '../../utils/DataStore';
 import { connect } from 'react-redux';
 import {hashHistory} from 'react-router';
 
 class ActiveList extends Component{
 	constructor(props) {
 		super(props);	
-		this.onDeleteClick= this.onDeleteClick.bind(this);
-		this.onDetailClick = this.onDetailClick.bind(this);
 	}
 
-	onDetailClick(index,e){
-		hashHistory.push("/active-detail");
-	}
-
-	onDeleteClick(index, e){
-		this.props.dispatch({
-			type : 'DELETE_ACTIVE',
-			index : index
+	componentDidMount() {
+		let me = this ;
+		DataStore.getActiveList().then(activeList=>{
+			me.props.dispatch({
+				type : 'GET_ACTIVITY_LIST',
+				activeList : activeList
+			})
 		})
 	}
 
-	onReleaseStateChange(index , e){
-		this.props.onReleaseStateChange(index)
+	onReleaseStateChange(index){
+		this.props.dispatch({type : 'ACTIVITY_RELEASE_STATE_CHANGE' , index : index })
 	}
 
 	render() {
-		const {activeList} = this.props;
 		return (
 			<div className="active-list">
 				{
-					activeList && activeList.length >0 && activeList.map( (active,index)=>(
+					this.props.activeList && this.props.activeList.length >0 && this.props.activeList.map( (active,index)=>(
 						<ActiveItem 
 						key={index}
-						activeNo={index}
+						activeIndex={index}
 						canDelete={true} 
-						onDetail={this.onDetailClick.bind(this,index)}
-						onDelete={this.onDeleteClick.bind(this,index)}
-						onReleaseStateChange={this.onReleaseStateChange.bind(this,index)}
 						activeInfo={active}
+						releaseStateChange={()=>this.onReleaseStateChange(index)}
 						/>
 					)) 
 				}
@@ -50,4 +45,9 @@ class ActiveList extends Component{
 
 }
 
-export default connect()(ActiveList);
+const mapStateToProps= state=>{
+	return {activeList : state.activity.list} 
+}
+
+
+export default connect(mapStateToProps)(ActiveList);

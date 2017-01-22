@@ -2,39 +2,47 @@
 import React , {Component} from 'react';
 import './ActiveItem.scss';
 import {hashHistory} from 'react-router';
+import {connect} from 'react-redux';
 
-export default class ActiveItem extends Component{
+class ActiveItem extends Component{
 	constructor(props) {
 		super(props);
-		this.onResize = this.onResize.bind(this);
 	}
 
 	componentDidMount() {
-		this.onResize()
-		window.addEventListener('resize' , this.onResize);
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize' , this.onResize);
 	}
 
-	onResize(){
-		// console.log('.active-item:',$(".active-item").width());
-		// $('.active-detail span').width($(".active-item").width() - 110 - 450)
+
+	onEditClick(index){
+		this.props.dispatch({type : 'GET_CURRENT_ACTIVITY' , index : index})
+		hashHistory.push("/active/edit");
 	}
 
-	onEditClick(){
-		hashHistory.push("/active-edit");
+	onDetailClick(index){
+		this.props.dispatch({type : 'GET_CURRENT_ACTIVITY' , index : index})
+		hashHistory.push("/active/enroll-list");
 	}
+
+	onDeleteClick(index){
+		this.props.dispatch({type : 'DELETE_ACTIVITY' , index : index})
+	}
+
+	onReleaseStateChange(index){
+		this.props.dispatch({type : 'ACTIVITY_RELEASE_STATE_CHANGE' , index : index })
+	}
+
+	
 
 	render() {
-		const {canDelete , onDetail ,  onDelete , activeInfo , activeNo , onReleaseStateChange} = this.props;
-
+		const {canDelete  , activeInfo , activeIndex , releaseStateChange  } = this.props;
 		return (
 			<div className="active-item">
 				<div className="active-item-left">
 					<div className="active-item-left-top">
-					{activeNo + 1}<span className="active-title">{activeInfo.title}</span>
+					{activeIndex + 1}<span className="active-title">{activeInfo.title}</span>
 					</div>
 					<div className="active-item-left-bottom">
 						<div className="active-image"></div>
@@ -48,17 +56,19 @@ export default class ActiveItem extends Component{
 				<div className="active-item-right">
 					<div className="active-item-right-top">
 						<span className="active-createTime">创建时间：{activeInfo.createTime}</span>
-						<div onClick={onReleaseStateChange} className={activeInfo.release ? "active-release-btn active-release-btn-open" : 'active-release-btn'}></div>
-						{canDelete ? (<div onClick={onDelete} className="active-delete-btn"></div>) : ''}
+						<div onClick={()=>this.onReleaseStateChange(activeIndex)} className={activeInfo.release ? "active-release-btn active-release-btn-open" : 'active-release-btn'}></div>
+						{canDelete ? (<div onClick={()=>this.onDeleteClick(activeIndex)} className="active-delete-btn"></div>) : ''}
 					</div>
 					<div className="active-item-right-center">
-						{activeInfo.isOpenLimit ?  '(' + activeInfo.personCount +'/' +  activeInfo.activeLimit + ")"   : '' } <span onClick={onDetail}>报名详情</span>
+						{activeInfo.isOpenLimit ?  '(' + activeInfo.personCount +'/' +  activeInfo.activeLimit + ")"   : '' } <span onClick={()=>this.onDetailClick(activeIndex)}>报名详情</span>
 					</div>
 					<div className="active-item-right-bottom">
-						<span onClick={ ()=>this.onEditClick()}>编辑</span>
+						<span onClick={ ()=>this.onEditClick(activeIndex)}>编辑</span>
 					</div>
 				</div>
 			</div>
 		)
 	}
 }
+
+export default connect()(ActiveItem);

@@ -30,7 +30,7 @@ Mock.mock(AppConfig.ApiConfig.getActiveList,{
         {
             'id' : '@string',
             'createTime' : MockRandom.date('yyyy-MM-dd'),
-            'release|0-2' : MockRandom.natural(0, 2),
+            'release' : MockRandom.natural(0, 1),
             'title' : MockRandom.csentence(2),
             'subTitle' : MockRandom.csentence(20),
             'address' : MockRandom.province() + MockRandom.city() + MockRandom.county() + 'XX大酒店2楼XX大酒店2,XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2XX大酒店2楼XX大酒店2',
@@ -57,7 +57,7 @@ Mock.mock(AppConfig.ApiConfig.getEnrollList,{
             "checkInStatus":0,
             'sex' : '0' , 
             'wechatId' : 'test',
-            'address' : 'sdffffffffffsadfasdfasdfasdfasdfsdf发撒旦法撒旦法是大法师打发撒旦法阿萨德',
+            'address' : 'sdffffffffffsadfasdfasdfasdfasdfsdf发撒旦法撒旦法是大法师打发撒旦法阿萨德打发撒旦法阿萨德打发撒旦法阿萨德打发撒旦法阿萨德打发撒旦法阿萨德',
             'diseaseRecord' : '病病病病病病病病病病病病病病病病病病病病病病'
         }
     ]

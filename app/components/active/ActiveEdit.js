@@ -4,16 +4,23 @@ import './ActiveEdit.scss';
 import {ContentWithBackNav , ImageUpload} from '../widgets';
 import ActiveEditForm from './ActiveEditForm';
 import {hashHistory} from 'react-router';
+import {connect} from 'react-redux';
 
-export default class ActiveEdit extends Component{
+class ActiveEdit extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			imageUrl : ''
+			imageUrl : '',
+			activeInfo : {}
 		}
 		this.onSaveClick = this.onSaveClick.bind(this);
 		this.onImageChange = this.onImageChange.bind(this);
 		this.onBackClick = this.onBackClick.bind(this);
+	}
+
+	componentDidMount() {
+		let params = this.props.params;
+		if(params === 'edit'){this.setState({activeInfo : this.props.current})}
 	}
 
 	onBackClick(){
@@ -56,7 +63,7 @@ export default class ActiveEdit extends Component{
 					onChange={this.onImageChange} 
 					imageUrl={this.state.imageUrl}
 					/>
-					<ActiveEditForm />
+					<ActiveEditForm activeInfo={this.state.activeInfo}/>
 				</div>
 				
 
@@ -64,3 +71,8 @@ export default class ActiveEdit extends Component{
 		)
 	}	
 }
+const mapStateToProps = (state)=>{
+	return { current : state.activity.current } 
+}
+
+export default connect(mapStateToProps)(ActiveEdit);

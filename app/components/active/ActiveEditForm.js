@@ -8,6 +8,8 @@ export default class ActiveEditForm extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
+			title : '',
+			
 			address : ''
 		}
 		this.mapInit = this.mapInit.bind(this);

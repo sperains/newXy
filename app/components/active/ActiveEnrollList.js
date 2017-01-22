@@ -3,14 +3,22 @@ import React , {Component} from 'react';
 import {ContentWithBackNav , CustomTable} from '../widgets';
 import {hashHistory} from 'react-router';
 import './ActiveEnrollList.scss';
+import DataStore from '../../utils/DataStore';
+import { connect } from 'react-redux';
 
 const data=[{ checkInStatus : 1 , index : 1 , intention : 1 , diseaseRecord : 'hahahahaah' } , { checkInStatus : 0 , index : 2 , intention : 2}]
 
-export default class ActiveEnrollList extends Component{
+class ActiveEnrollList extends Component{
 	constructor(props) {
 		super(props);
-		this.state = {
-		}
+		this.state = {}
+	}
+
+	componentDidMount() {
+		console.log('current ' , this.props.current)
+		DataStore.getEnrollList({id : 1 }).then( data=>{
+			this.props.dispatch({type : 'GET_ACTIVITY_ENROLL_LIST' , enrollList : data})
+		})
 	}
 
 	onExportClick(e , name){
@@ -55,14 +63,16 @@ export default class ActiveEnrollList extends Component{
 			{ title : '茶道课程' , dataIndex : 'teaCeremony' ,width : 120 , render : value => value == 1 ? '是' : '否'},
 			{ title : '喜悦活动' , dataIndex : 'xiyueActive' ,width : 120 ,render : value => value == 1 ? '是' : '否'},
 			{ title : '疾病记录' , dataIndex : 'diseaseRecord'  },
-			{ title : '地址', dataIndex : 'address' , width : 550 , render : value => <a style={{width : '534px'}} title={value}>{value}</a> },
+			{ title : '地址', dataIndex : 'address' , width : 550 , render : value => <a className="width-list" title={value}>{value}</a> },
 			
 		];
+
+		const {title }  = this.props.current;
 		return (
 			<div className="active-enroll-list">
 				<ContentWithBackNav 
 					prev={'喜悦活动项'}
-					current={'喜悦活动冬季体验课 报名详情'}
+					current={`${title} 报名详情`}
 					btnOpts={[
 						{ text : '导出', onClick : (e)=>this.onExportClick(e )}
 					]}
@@ -71,7 +81,7 @@ export default class ActiveEnrollList extends Component{
 				<div className="active-enroll-list-content">
 					<CustomTable 
 						columns={columns}
-						dataSource={data}
+						dataSource={this.props.enrollList}
 						scroll={ { x : 2800 }}
 					/>
 				</div>
@@ -79,6 +89,9 @@ export default class ActiveEnrollList extends Component{
 
 		)
 	}	
-
-
 }
+const mapStateToProps = (state)=>{
+	return {enrollList : state.activity.enrollList  , current : state.activity.current} 
+}
+
+export default connect(mapStateToProps)(ActiveEnrollList);
