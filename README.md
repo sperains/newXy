@@ -132,7 +132,8 @@ ReactDOM.render(
 在各模块目录下都有一个`index.js`文件,该文件是为了整合目录下的组件,并进行统一导出.
 
 ##### 喜悦活动
-![image](https://github.com/sperains/newXy/tree/master/sceens/853ad13a-5809-4101-a09d-cc34845d8e6d.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/853ad13a-5809-4101-a09d-cc34845d8e6d.png)
+
 该模块目录如下
 ```javascript
 active
