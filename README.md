@@ -69,7 +69,7 @@ hashHistory.push('/identity/new' );
 以上代码表示跳转到  `新建职级` 界面.详情参考React-router文档.
 
 #### 项目模块划分
-![Alt text](./1485413286509.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/853ad13a-5809-4101-a09d-cc34845d8e6d.png)
 如上图所示,该项目主页面分为三大区域:
 **顶部工具栏**: 包含项目logo,用户登录信息入口,注销等.
 **左侧菜单栏**: 一个可折叠的导航菜单栏.
@@ -132,7 +132,7 @@ ReactDOM.render(
 在各模块目录下都有一个`index.js`文件,该文件是为了整合目录下的组件,并进行统一导出.
 
 ##### 喜悦活动
-![image](https://github.com/sperains/newXy/blob/master/sceens/853ad13a-5809-4101-a09d-cc34845d8e6d.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/3bb612e3-54a6-477e-b4c9-6bacf82dd7b3.png)
 
 该模块目录如下
 ```javascript
@@ -161,7 +161,7 @@ active模块的层级关系如下
 </Active>
 ```
 其中`ContentNav`是一个通用的自定义组件。其在界面种显示以下内容。
-![Alt text](./1485581125376.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/b5c73ea6-2913-4006-a80b-904c410d08df.png)
 组件左侧为当前模块名称，右侧是一组功能按钮。
 `ContentNav`有两个可配置的属性
 -**title**  		模块名称。
@@ -202,7 +202,7 @@ active模块的层级关系如下
 
 ##### 正念训练
 正念训练界面如下:
-![Alt text](./1485585634596.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/1b06f4a4-7cdb-49e2-ad52-6cabae94fd9e.png)
 该模块目录如下：
 ```
 training 
@@ -240,7 +240,7 @@ item数据结构如下:
  }
 ```
 ##### 生命数字
-![Alt text](./1485585567387.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/d78dde95-9cd7-41e7-94b7-18947c79d9d2.png)
 该模块目录如下:
 ```javascript
 number
@@ -326,14 +326,14 @@ switch(this.state.currentTabIndex){
 </div>
 ```
 ##### 会员管理
-![Alt text](./1485585667371.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/bf97a825-3bf2-4607-aba1-104bd9807ddb.png)
 该模块由`ContentNav`及`CustomTable`组成.各组件配置属性前面已有说明不再赘述.
 
 ##### 能量管理
 能量规则界面如下
-![Alt text](./1485676367393.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/077785da-c7aa-491f-8636-059e052e4d5a.png)
 能量排名界面如下
-![Alt text](./1485676910387.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/7bd4bd9e-dea1-4e41-a357-397bee60a0d8.png)
 
 该模块目录结构如下:
 ```javascript
@@ -350,7 +350,7 @@ energy
 
 ##### 职级管理
 职级管理界面如下:
-![Alt text](./1485677839112.png)
+![image](https://github.com/sperains/newXy/blob/master/sceens/a7d87b01-c017-4b57-afeb-ad87a7e51bc4.png)
 模块目录结构如下:
 ```javascript
 identity
